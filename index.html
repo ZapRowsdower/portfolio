@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Jonathan Ely's Web Portfolio</title>
+    <meta name="description" content="Jonathan Ely: Web Developer, Backpacker, Writer, Photographer. A geek that goes outside.">
+    <meta name="author" content="Jonathan Ely">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/codePenPortfolio.css">
+  </head>
+  <body ng-app="appName">
+    <div class="container">
+      <h1 class="outline nocontent">Jonathan Ely's Web Portfolio</h1>
+      <nav id="myNavTop" title="Navigation at the top of the page" class="navbar navbar-default myNavStyle">
+        <h2 class="outline nocontent">Top Navigation</h2>
+        <div id="divBanner" class="col-lg-12 text-center">
+          <div id="moon"></div>
+          <h1 class="text-center">Jonathan Ely</h1>
+        </div>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div id="topNav" class="collapse navbar-collapse">
+          <div class="row">
+            <div class="col-sm-6">
+              <a href="#portfolio">Portfolio</a>
+            </div>
+            <div class="col-sm-6">
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="row lead text-left" id="about">
+        <h2 class="outline nocontent">About Me Section</h2>
+        <div class="col-md-5">
+          <h3 class="textOutlineBlack text-center">
+            I'm a geek that goes outside
+          </h3>
+          <p class="textOutlineBlack">I love coding and I love backpacking.</p>
+          <p class="textOutlineBlack">
+            <!-- TODO: link to portfolio content pertaining to PCT -->
+            I walked from Mexico to Canada on the 2,650 mile long <b><a href="http://www.pcta.org/">Pacific Crest Trail.</a></b>
+          </p>
+          <p class="textOutlineBlack">
+            <!-- TODO: link to actual code/ui page of my portfolio, not just portfolio -->
+            When I'm not wandering through the wilderness, I design <b><a href="#portfolio">user interfaces</a></b> which emphasize
+            user friendliness and workflow efficiency based on a thorough analysis of user needs.
+          </p>
+          <p class="textOutlineBlack">
+            I then make those goals a reality in code.
+          </p>
+        </div>
+      </section>
+      <section class="row" id="portfolio">
+        <h2 class="outline nocontent">Portfolio Section</h2>
+        <nav id="portfolioNavSection" title="My Portfolio" class="navbar navbar-default myNavStyle">
+          <h3 class="outline nocontent">Portfolio Navigation</h3>
+          <h3 title="Portfolio" class="sectionHeader text-center">Portfolio</h3>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div id="portfolioNav" class="collapse navbar-collapse">
+            <div class="row">
+              <div class="col-sm-3">
+                <a href="#"><b>&lt;/&gt;</b>&nbsp; Web</a>
+              </div>
+              <div class="col-sm-3">
+                <a href="#"><i class="glyphicon glyphicon-camera">&nbsp;</i>Photos</a>
+              </div>
+              <div class="col-sm-3">
+                <a href="#"><i class="glyphicon glyphicon-film">&nbsp;</i>Videos</a>
+              </div>
+              <div class="col-sm-3">
+                <a href="#"><i class="glyphicon glyphicon-pencil">&nbsp;</i>Blog</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="portfolioGrid" id="webPortfolio">
+          <div class="col-md-6">
+            <img class="img-responsive" src="http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg">
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive" src="http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg">
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive" src="http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg">
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive" src="http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg">
+          </div>
+        </div>
+      </section>
+      <section class="row" id="contact">
+        <h2 class="outline nocontent">Contact Section</h2>
+        <h3 class="sectionHeader text-center">Get In Contact</h3>
+        <div class="col-md-6">
+          <h4 class="outline nocontent">Contact Form</h4>
+          <input type="text" placeholder="Name" id="txtName">
+          <br>
+          <input type="text" placeholder="Email" id="txtEmail">
+          <br>
+          <input type="text" placeholder="Phone" id="txtPhone">
+          <br>
+          <input type="text" placeholder="Message" id="txtMsg">
+          <div class="contactBtnWrapper">
+            <button type="submit" id="btnSubmit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p>
+            Hit me up if you wanna hire me or see my resume. I can also be reached via LinkedIn and GitHub.
+          </p>
+          <ul class="socialMediaArray">
+            <li>
+              <a href="https://www.linkedin.com/in/elyjonathan" class="button social" target='_blank'>
+                <i class="fa fa-linkedin fa-2x roundBtn"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ZapRowsdower" class="button social" target='_blank'>
+                <i class="fa fa-github fa-2x roundBtn"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="backToTopWrapper">
+        <a href="#myNavTop" target="_self">
+          <div class="backToTop glyphicon glyphicon-triangle-top">
+          </div>
+          <span>Back to top</span>
+        </a>
+      </div>
+      <footer class="ownerFooter text-center col-md-12">
+        <span>Designed and Coded by Jonathan Ely &copy; 2016</span>
+      </footer>
+    </div>
+  </body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.js"></script>
+  <script src="js/app.js"></script>
+</html>

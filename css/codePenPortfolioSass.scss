@@ -1,0 +1,141 @@
+//typography
+$helveticaNeueStack: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$helveticaNeueThinStack: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$headerLetterSpacing: 1px;
+$headerMarginBottom: 3%;
+.sectionHeader {
+  margin-bottom: $headerMarginBottom;
+}
+//colors
+$white: #fff;
+$nearWhite: #efefef;
+$lightGrey: #ddd;
+$grey: #ccc;
+$darkGrey: #4c4c4c;
+
+//primary colors
+$blue: blue;
+
+//color variations
+$brightBlue: #00AAff;
+$deepBlue: #1f235d;
+
+//links
+$linkPrimary: $darkGrey;
+$linkHover: $brightBlue;
+$linkVisited: $blue;
+
+a{
+  color: $linkPrimary;
+  &:hover{
+    color: $linkHover;
+    text-decoration: none;
+  }
+}
+section{
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid $nearWhite;
+}
+body{
+  background-color: $nearWhite;
+}
+.container{
+  background-color: $white;
+  border: 1px solid $lightGrey;
+}
+.portfolioGrid div{
+  margin-bottom: 2%;
+}
+.myNavStyle {
+  background-color: $white;
+  border-style: none;
+  text-align: center;
+}
+.backToTopWrapper{
+  text-align: center;
+  cursor: pointer;
+  span{
+    margin-left: 1%;
+    font-size: 24px;
+    color: $grey;
+  }
+}
+.backToTop{
+  background-color: $lightGrey;
+  color: $white;
+  padding: 0.5%;
+  font-size: 20px;
+  border-radius: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contactBtnWrapper{
+  text-align: center;
+}
+.socialMediaArray{
+  list-style: none;
+  text-align: center;
+  li {
+    display: inline;
+    margin-right: 1%;
+  }
+  i{
+    line-height: 50px;
+  }
+}
+.roundBtn {
+  border-radius: 50%;
+  background-color: #4c4c4c;
+  color: #fff;
+  width:50px;
+  height:50px;
+}
+#btnSubmit {
+  margin-left: 0 auto;
+}
+#myNavTop {
+  a{
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+#portfolioNav{
+  text-align: center;
+  a{
+    font-family: $helveticaNeueStack;
+    font-size: 20px;
+    vertical-align: bottom;
+  }
+}
+#divBanner{
+  font-family: $helveticaNeueThinStack;
+  color: $darkGrey;
+  border-bottom: 2px solid $grey;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding-bottom: 1%;
+  h1 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+#photoBubble{
+  border-radius: 50%;
+  margin-right: 1%;
+  background-color: rgba (255,255,255,1);
+}
+#contact{
+  input{
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  button {
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,12 @@
+$primaryColor: #f00;
+
+.firstClass {
+  color: $primaryColor;
+  font-family: sans-serif;
+  text-decoration: underline;
+}
+
+.secondClass {
+  @extend .firstClass;
+  border-color: #fff;
+}
