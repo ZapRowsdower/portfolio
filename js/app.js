@@ -47,8 +47,11 @@ var appModuleName = (function () {
     //up to half moon (if percentage between 0 - 50)
     var moonPhaseToInt = moonPhasePercent.replace(/%/g, "");
     moonPhaseToInt = parseInt(moonPhaseToInt);
+    //TODO: moon phase drawing is effed up. its too far ahead
     if(moonPhaseToInt >= 0 && moonPhaseToInt <= 50){
-      var moonPhaseToPx = moonPhaseToInt.toString();
+      //some weird math to make the pixel values map to the percentage better
+      var moonMath = moonPhaseToInt * 0.6;
+      var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
       $("#moon").css("background-color","#1f235d");
       $("#moon").css("border-right-color","#ccc");
@@ -58,17 +61,21 @@ var appModuleName = (function () {
       $("#moon").css("border-left-width","0px");
       $("#moon").css("border-left-style","none");
     } else {
+      //TODO: test
     //After half moon (if percentage between 50 and 100):
     //apply different styles to simulate greater disc illumination.
-      //First, subtract the greater than 50 moonPx value from 100 to set a proper border width
+      //First, subtract the moon phase value from 100 to set a proper border width
       moonPhaseToInt = 100-moonPhaseToInt;
+      //some math to make the pixel values map to the percentage better (30px border)
+      //width ends up being half moon phase, so mult. by 0.6 adjusts the values
+      var moonMath = moonPhaseToInt * 0.6;
       //convert back to string
-      var moonPhaseToPx = moonPhaseToInt.toString();
+      var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $("#moon").css("background-color","#1f235d");
+      $("#moon").css("background-color","#ccc");
       $("#moon").css("border-left-width",moonPhaseToPx);
       $("#moon").css("border-left-style","solid");
-      $("#moon").css("border-left-color","#000");
+      $("#moon").css("border-left-color","#1f235d");
       //reset conflicting styles
       $("#moon").css("border-right-width","0px");
       $("#moon").css("border-right-style","none");
