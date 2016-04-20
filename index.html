@@ -14,18 +14,20 @@
     <div class="container">
       <h1 class="outline nocontent">Jonathan Ely's Web Portfolio</h1>
       <!-- Refactor nav bar to stay fixed at top. Also nest the hamburger menu button with h1, logo -->
-      <nav id="myNavTop" class="navbar navbar-default myNavStyle">
+      <nav id="myNavTop" class="navbar navbar-default navbar-fixed-top myNavStyle">
         <h2 class="outline nocontent">Top Navigation</h2>
         <div id="divBanner" class="col-xs-12 text-center">
-          <div id="moon"></div>
-          <h1 class="text-center">Jonathan Ely</h1>
+          <div class="row">
+            <div id="moon"></div>
+            <h1 class="text-center">Jonathan Ely</h1>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
         </div>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <div id="topNav" class="collapse navbar-collapse">
           <div class="row">
             <div class="col-xs-6">
@@ -71,16 +73,16 @@
           </button>
           <div id="portfolioNav" class="collapse navbar-collapse">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-xs-3">
                 <a href="#"><b>&lt;/&gt;</b>&nbsp; Web</a>
               </div>
-              <div class="col-sm-3">
+              <div class="col-xs-3">
                 <a href="#"><i class="glyphicon glyphicon-camera">&nbsp;</i>Photos</a>
               </div>
-              <div class="col-sm-3">
+              <div class="col-xs-3">
                 <a href="#"><i class="glyphicon glyphicon-film">&nbsp;</i>Videos</a>
               </div>
-              <div class="col-sm-3">
+              <div class="col-xs-3">
                 <a href="#"><i class="glyphicon glyphicon-pencil">&nbsp;</i>Blog</a>
               </div>
             </div>
@@ -138,7 +140,7 @@
         </div>
       </section>
       <div class="backToTopWrapper">
-        <a href="#myNavTop" target="_self">
+        <a href="#about" target="_self">
           <div class="backToTop glyphicon glyphicon-triangle-top">
           </div>
           <span>Back to top</span>

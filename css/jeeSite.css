@@ -12,6 +12,13 @@ section {
 }
 body {
   background-color: #efefef;
+  /*padding top because navbar is fixed position and overlaps content*/
+  padding-top: 80px;
+}
+.navbar button.navbar-toggle{
+  margin-left: 1%;
+  margin-right: 4%;
+  padding: 5px;
 }
 .outline {
   display: none;
