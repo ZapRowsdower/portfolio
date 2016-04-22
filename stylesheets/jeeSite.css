@@ -153,7 +153,7 @@ body {
 
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{
-  color: #00AAff;
+  color: $brightBlue;
   cursor: pointer;
   position: relative;
   left: 25%;
@@ -169,8 +169,8 @@ body {
   position: absolute;
   left: 50%;
   margin-left: -10%;
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   opacity: 0;
   transition: opacity 1s ease;
   padding: 1%;

@@ -10,16 +10,16 @@ $linkVisited: $blue;
 a {
   color: $darkGrey;
   &:hover {
-    color: #00AAff;
+    color: $brightBlue;
     text-decoration: none;
   }
 }
 section {
   margin-bottom: 1%;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid $nearWhite;
 }
 body {
-  background-color: #efefef;
+  background-color: $nearWhite;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 90px;
 }
@@ -27,8 +27,8 @@ body {
   display: none;
 }
 .container {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $lightGrey;
 }
 .sectionHeader {
   margin-bottom: 3%;
@@ -43,7 +43,7 @@ body {
   border-radius: 50%;
   vertical-align: bottom;
   margin-right: 1%;
-  background-color: #1f235d;
+  background-color: $deepBlue;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;
@@ -51,7 +51,7 @@ body {
   padding: 5px;
 }
 .my-nav-style {
-  background-color: #fff;
+  background-color: $white;
   border-style: none;
   text-align: center;
   a {
@@ -62,8 +62,8 @@ body {
 }
 .my-main-banner {
   font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #4c4c4c;
-  border-bottom: 2px solid #ccc;
+  color: $darkGrey;
+  border-bottom: 2px solid $grey;
   margin-bottom: 1%;
   margin-top: 1%;
   padding-bottom: 1%;
@@ -77,11 +77,11 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   min-height: inherit;
   padding: 5%;
-  color: #fff;
+  color: $white;
   a{
     color: #00AAff;
     &:hover{
-      color: #000;
+      color: $black;
     }
   }
 }
@@ -107,12 +107,12 @@ body {
   span {
     margin-left: 1%;
     font-size: 24px;
-    color: #ccc;
+    color: $grey;
   }
 }
 .back-to-top {
-  background-color: #ddd;
-  color: #fff;
+  background-color: $lightGrey;
+  color: $white;
   padding: 0.5%;
   font-size: 20px;
   border-radius: 15%;
@@ -132,20 +132,20 @@ body {
 }
 .btn-round {
   border-radius: 50%;
-  background-color: #4c4c4c;
-  color: #fff;
+  background-color: $darkGrey;
+  color: $white;
   width: 50px;
   height: 50px;
 }
 .footer-credits {
-  color: #ccc;
+  color: $grey;
 }
 .my-text-shadow {
-  text-shadow: 1px 1px #4c4c4c;
+  text-shadow: 1px 1px $darkGrey;
 }
 /*override boostrap btn-primary style*/
 .btn-primary {
-  background-color: #00AAff;
+  background-color: $brightBlue;
 }
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
 .top-target{
@@ -172,7 +172,7 @@ body {
 
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{
-  color: #00AAff;
+  color: $brightBlue;
   cursor: pointer;
   position: relative;
   left: 25%;
@@ -188,8 +188,8 @@ body {
   position: absolute;
   left: 50%;
   margin-left: -10%;
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   opacity: 0;
   transition: opacity 1s ease;
   padding: 1%;
