@@ -139,3 +139,32 @@ body{
     font-size: 20px;
   }
 }
+/*goofy fun with css hover events and such. trivial*/
+/*#moon>h3{
+  color: #00AAff;
+  cursor: pointer;
+  position: relative;
+  left: 25%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#moon:hover>h3{
+  opacity: 1;
+}
+
+#moon ~p#moonHelpText {
+  position: absolute;
+  left: 50%;
+  margin-left: -10%;
+  background-color: #000;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 1s ease;
+  padding: 1%;
+  z-index: 1;
+}*/
+
+/*#moon:hover ~p#moonHelpText{
+  opacity: 1;
+}*/

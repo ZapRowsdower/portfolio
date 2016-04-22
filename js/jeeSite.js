@@ -41,7 +41,8 @@ var appModuleName = (function () {
     console.log("Moon phase is: "+moonPhasePercent);
   }
   var drawMoon = function () {
-    $("#moon").attr("title","The moon is "+moonPhasePercent+" full");
+    var moonElem = $(".moon");
+    $(moonElem).attr("title","The moon is "+moonPhasePercent+" full");
     //TODO: Bonus points: use angular to do this
     //set css properties for moon element to portray current moon phase
     //up to half moon (if percentage between 0 - 50)
@@ -53,13 +54,13 @@ var appModuleName = (function () {
       var moonMath = moonPhaseToInt * 0.6;
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $("#moon").css("background-color","#1f235d");
-      $("#moon").css("border-right-color","#ccc");
-      $("#moon").css("border-right-width",moonPhaseToPx);
-      $("#moon").css("border-right-style","solid");
+      $(moonElem).css("background-color","#1f235d");
+      $(moonElem).css("border-right-color","#ccc");
+      $(moonElem).css("border-right-width",moonPhaseToPx);
+      $(moonElem).css("border-right-style","solid");
       //reset conflicting styles
-      $("#moon").css("border-left-width","0px");
-      $("#moon").css("border-left-style","none");
+      $(moonElem).css("border-left-width","0px");
+      $(moonElem).css("border-left-style","none");
     } else {
       //TODO: test
     //After half moon (if percentage between 50 and 100):
@@ -72,13 +73,13 @@ var appModuleName = (function () {
       //convert back to string
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $("#moon").css("background-color","#ccc");
-      $("#moon").css("border-left-width",moonPhaseToPx);
-      $("#moon").css("border-left-style","solid");
-      $("#moon").css("border-left-color","#1f235d");
+      $(moonElem).css("background-color","#ccc");
+      $(moonElem).css("border-left-width",moonPhaseToPx);
+      $(moonElem).css("border-left-style","solid");
+      $(moonElem).css("border-left-color","#1f235d");
       //reset conflicting styles
-      $("#moon").css("border-right-width","0px");
-      $("#moon").css("border-right-style","none");
+      $(moonElem).css("border-right-width","0px");
+      $(moonElem).css("border-right-style","none");
     }
   }
 

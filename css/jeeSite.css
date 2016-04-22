@@ -1,4 +1,4 @@
-/*Add CSS animation somewhere on here to meet course requirements*/
+/*TODO: Add CSS animation somewhere on here to meet course requirements*/
 a {
   color: #4c4c4c;
 }
@@ -15,11 +15,6 @@ body {
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 90px;
 }
-.navbar button.navbar-toggle{
-  margin-left: 1%;
-  margin-right: 4%;
-  padding: 5px;
-}
 .outline {
   display: none;
 }
@@ -30,25 +25,84 @@ body {
 .sectionHeader {
   margin-bottom: 3%;
 }
-.portfolioGrid div {
-  margin-bottom: 2%;
+.elem-center {
+  margin-left: 0 auto;
 }
-.myNavStyle {
+.moon{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  vertical-align: bottom;
+  margin-right: 1%;
+  background-color: #1f235d;
+}
+.navbar button.navbar-toggle{
+  margin-left: 1%;
+  margin-right: 4%;
+  padding: 5px;
+}
+.my-nav-style {
   background-color: #fff;
   border-style: none;
   text-align: center;
 }
-.backToTopWrapper {
+.my-nav-style a {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+}
+.my-main-banner {
+  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #4c4c4c;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding-bottom: 1%;
+}
+.my-main-banner h1 {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 200;
+}
+.txt-over-img {
+  background-color: rgba(0, 0, 0, 0.3);
+  min-height: inherit;
+  padding: 5%;
+  color: #fff;
+}
+.txt-over-img a {
+  color: #00AAff;
+}
+.txt-over-img a:hover {
+  color: #000;
+}
+.my-form input {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.my-form button {
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 20px;
+}
+.my-portfolio-grid div {
+  margin-bottom: 2%;
+}
+.back-to-top-wrapper {
   text-align: center;
   cursor: pointer;
   margin-bottom: 1%;
 }
-.backToTopWrapper span {
+.back-to-top-wrapper span {
   margin-left: 1%;
   font-size: 24px;
   color: #ccc;
 }
-.backToTop {
+.back-to-top {
   background-color: #ddd;
   color: #fff;
   padding: 0.5%;
@@ -57,31 +111,28 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.contactBtnWrapper {
-  text-align: center;
-}
-.socialMediaArray {
+.list-social-media {
   list-style: none;
   text-align: center;
 }
-.socialMediaArray li {
+.list-social-media li {
   display: inline;
   margin-right: 1%;
 }
-.socialMediaArray i {
+.list-social-media i {
   line-height: 50px;
 }
-.roundBtn {
+.btn-round {
   border-radius: 50%;
   background-color: #4c4c4c;
   color: #fff;
   width: 50px;
   height: 50px;
 }
-.ownerFooter {
+.footer-credits {
   color: #ccc;
 }
-.textOutlineBlack {
+.my-text-shadow {
   text-shadow: 1px 1px #4c4c4c;
 }
 /*override boostrap btn-primary style*/
@@ -89,119 +140,24 @@ body {
   background-color: #00AAff;
 }
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
-#top{
+.top-target{
   position: relative;
   top: -250px;
   visibility: hidden;
 }
-#about{
-  background-image: url('../img/matherMe.jpg');
+.fixed-background {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: right;
   min-height: 25%;
-  color: #fff;
 }
-/* Small devices can't handle the bg-attachment fixed, so on those devices use scroll*/
+/* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
-  #about{
+  .fixed-background{
     background-attachment: scroll;
   }
 }
-#about div {
-  background-color: rgba(0, 0, 0, 0.3);
-  min-height: inherit;
-  padding: 5%;
+#about{
+  background-image: url('../img/matherMe.jpg');
 }
-#about a {
-  color: #00AAff;
-}
-#about a:hover {
-  color: #000;
-}
-#btnSubmit {
-  margin-left: 0 auto;
-}
-#myNavTop a {
-  font-weight: bold;
-  font-size: 20px;
-  letter-spacing: 0.05em;
-}
-#portfolioNav {
-  text-align: center;
-}
-#portfolioNav a {
-  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 20px;
-  vertical-align: bottom;
-}
-#divBanner {
-  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #4c4c4c;
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 1%;
-  margin-top: 1%;
-  padding-bottom: 1%;
-}
-#divBanner h1 {
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: 200;
-}
-#photoBubble {
-  border-radius: 50%;
-  margin-right: 1%;
-  background-color: rgba 255, 255, 255, 1;
-}
-#contact input {
-  width: 100%;
-  height: 50px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  padding: 5px;
-}
-#contact button {
-  margin: 0 auto;
-  padding: 10px;
-  font-size: 20px;
-}
-#moon{
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  vertical-align: bottom;
-  margin-right: 1%;
-  background-color: #1f235d;
-
-}
-/*goofy fun with css hover events and such. trivial*/
-/*#moon>h3{
-  color: #00AAff;
-  cursor: pointer;
-  position: relative;
-  left: 25%;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-#moon:hover>h3{
-  opacity: 1;
-}
-
-#moon ~p#moonHelpText {
-  position: absolute;
-  left: 50%;
-  margin-left: -10%;
-  background-color: #000;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 1s ease;
-  padding: 1%;
-  z-index: 1;
-}*/
-
-/*#moon:hover ~p#moonHelpText{
-  opacity: 1;
-}*/
