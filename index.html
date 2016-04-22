@@ -12,6 +12,8 @@
   </head>
   <body>
     <div class="container">
+      <!-- P tag used prevent my fixed position navbar from overlapping content when 'back to top' link is used -->
+      <p id="top"></p>
       <h1 class="outline nocontent">Jonathan Ely's Web Portfolio</h1>
       <!-- Refactor nav bar to stay fixed at top. Also nest the hamburger menu button with h1, logo -->
       <nav id="myNavTop" class="navbar navbar-default navbar-fixed-top myNavStyle">
@@ -140,7 +142,7 @@
         </div>
       </section>
       <div class="backToTopWrapper">
-        <a href="#about" target="_self">
+        <a href="#top" target="_self">
           <div class="backToTop glyphicon glyphicon-triangle-top">
           </div>
           <span>Back to top</span>

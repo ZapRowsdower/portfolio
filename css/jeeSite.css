@@ -13,7 +13,7 @@ section {
 body {
   background-color: #efefef;
   /*padding top because navbar is fixed position and overlaps content*/
-  padding-top: 80px;
+  padding-top: 90px;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;
@@ -87,6 +87,12 @@ body {
 /*override boostrap btn-primary style*/
 .btn-primary {
   background-color: #00AAff;
+}
+/* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
+#top{
+  position: relative;
+  top: -250px;
+  visibility: hidden;
 }
 #about{
   background-image: url('../img/matherMe.jpg');
