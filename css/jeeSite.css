@@ -82,7 +82,7 @@ body {
   color: #ccc;
 }
 .textOutlineBlack {
-  text-shadow: 0.5px 0.5px #000;
+  text-shadow: 1px 1px #4c4c4c;
 }
 /*override boostrap btn-primary style*/
 .btn-primary {
@@ -147,6 +147,7 @@ body {
 #divBanner h1 {
   display: inline-block;
   vertical-align: middle;
+  font-weight: 200;
 }
 #photoBubble {
   border-radius: 50%;
