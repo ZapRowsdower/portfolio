@@ -97,6 +97,12 @@ body {
   min-height: 25%;
   color: #fff;
 }
+/* Small devices can't handle the bg-attachment fixed, so on those devices use scroll*/
+@media (max-width: 1024px) {
+  #about{
+    background-attachment: scroll;
+  }
+}
 #about div {
   background-color: rgba(0, 0, 0, 0.3);
   min-height: inherit;
