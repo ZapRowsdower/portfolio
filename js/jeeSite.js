@@ -5,6 +5,7 @@ var appModuleName = (function () {
   var styleSheetDay = "jeeSite.css";
   var styleSheetNight = "jeeSiteNight.css"
   var moonPhasePercent = "0%";
+  var moonPhaseInt = 0;
   //TODO: ensure you have all possible cases here. Cases are from data returned by
   //the navy API call
   var moonPhaseDict = {
@@ -27,6 +28,14 @@ var appModuleName = (function () {
   });
   // Private Methods
   ///////////////////////////
+  //TODO: move to a utility file
+  // convert percent to int for comparisions
+  var convertPercentToInt = function (percentage) {
+    var removeSymbol = percentage.replace(/%/g, "");
+    var int = parseInt(removeSymbol);
+    return int;
+  }
+
   //sets the global moon percent var
   var setMoonPhasePercent = function (astroData){
     //sanity check
@@ -45,12 +54,9 @@ var appModuleName = (function () {
     console.log("Moon phase is: "+moonPhasePercent);
   }
 
-  //TODO: move to a utility file
-  // convert percent to int for comparisions
-  var convertPercentToInt = function (percentage) {
-    var removeSymbol = percentage.replace(/%/g, "");
-    var int = parseInt(removeSymbol);
-    return int;
+  //set an int version of the moon phase (ex: '100%' == 100)
+  var setMoonPhaseInt = function () {
+    moonPhaseInt = convertPercentToInt(moonPhasePercent);
   }
 
   //change the CSS: used to switch between day/night UI modes
@@ -58,23 +64,25 @@ var appModuleName = (function () {
     $("head link#swapSheet").attr('href',cssFile);
   }
 
+  //change which CSS file to use based on moon phase
+  var changeCSSByMoon = function () {
+    //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
+    //if the moon is near or at full, change stylesheet to night style
+    if (moonPhaseInt >= 95) {
+      changeCSS(styleSheetLoc+styleSheetNight);
+    } else changeCSS(styleSheetLoc+styleSheetDay);
+    //
+  }
+
   var drawMoon = function () {
     var moonElem = $(".moon");
     $(moonElem).attr("title","The moon is "+moonPhasePercent+" full");
-    //TODO: Bonus points: use angular to do this
+
     //set css properties for moon element to portray current moon phase
     //up to half moon (if percentage between 0 - 50)
-    var moonPhaseToInt = convertPercentToInt(moonPhasePercent);
-
-    //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
-    //if the moon is near or at full, change stylesheet to night style
-    if (moonPhaseToInt >= 95) {
-      changeCSS(styleSheetLoc+styleSheetNight);
-    } else changeCSS(styleSheetLoc+styleSheetDay);
-
-    if(moonPhaseToInt >= 0 && moonPhaseToInt <= 50){
+    if(moonPhaseInt >= 0 && moonPhaseInt <= 50){
       //some weird math to make the pixel values map to the percentage better
-      var moonMath = moonPhaseToInt * 0.6;
+      var moonMath = moonPhaseInt * 0.6;
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
       $(moonElem).css("background-color","#1f235d");
@@ -85,14 +93,14 @@ var appModuleName = (function () {
       $(moonElem).css("border-left-width","0px");
       $(moonElem).css("border-left-style","none");
     } else {
-      //TODO: test
+      //TODO: test over the course of the month
     //After half moon (if percentage between 50 and 100):
     //apply different styles to simulate greater disc illumination.
       //First, subtract the moon phase value from 100 to set a proper border width
-      moonPhaseToInt = 100-moonPhaseToInt;
+      moonPhaseInt = 100-moonPhaseInt;
       //some math to make the pixel values map to the percentage better (30px border)
       //width ends up being half moon phase, so mult. by 0.6 adjusts the values
-      var moonMath = moonPhaseToInt * 0.6;
+      var moonMath = moonPhaseInt * 0.6;
       //convert back to string
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
@@ -111,9 +119,9 @@ var appModuleName = (function () {
   var navyAPICall = function () {
     //get all astronomical data for sun and moon from a US Navy API. Params needed:
     var loc = "Washington%20,%20DC";
-    //TODO: do this server side eventually
     var today = new Date();
-    //format date to mm/dd/yyyy for date param in api call
+    //TODO: move to utility file
+    // format date to mm/dd/yyyy for date param in api call
     today = today.getMonth()+1+"/"+today.getDate()+"/"+today.getFullYear();
     //TODO: note the URL is NOT https and potentially insecure
     var apiURL = "http://api.usno.navy.mil/rstt/oneday?date="+today+"&loc="+loc;
@@ -129,6 +137,8 @@ var appModuleName = (function () {
        },
        success: function(data) {
           setMoonPhasePercent(data);
+          setMoonPhaseInt();
+          changeCSSByMoon();
           drawMoon();
        },
        type: 'GET'
