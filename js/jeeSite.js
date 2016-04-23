@@ -1,6 +1,9 @@
 var appModuleName = (function () {
   // Properties
   ///////////////////////////
+  var styleSheetLoc = "stylesheets/";
+  var styleSheetDay = "jeeSite.css";
+  var styleSheetNight = "jeeSiteNight.css"
   var moonPhasePercent = "0%";
   //TODO: ensure you have all possible cases here. Cases are from data returned by
   //the navy API call
@@ -48,7 +51,13 @@ var appModuleName = (function () {
     //up to half moon (if percentage between 0 - 50)
     var moonPhaseToInt = moonPhasePercent.replace(/%/g, "");
     moonPhaseToInt = parseInt(moonPhaseToInt);
-    //TODO: moon phase drawing is effed up. its too far ahead
+
+    //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
+    //if the moon is near or at full, change stylesheet to night style
+    if (moonPhaseToInt >= 95) {
+      changeCSS(styleSheetLoc+styleSheetNight);
+    } else changeCSS(styleSheetLoc+styleSheetDay);
+
     if(moonPhaseToInt >= 0 && moonPhaseToInt <= 50){
       //some weird math to make the pixel values map to the percentage better
       var moonMath = moonPhaseToInt * 0.6;
@@ -111,9 +120,10 @@ var appModuleName = (function () {
        type: 'GET'
     });
   };
-  //wrapper function for trivial UI interactions using simple jQuery
-  var minorUIWrapper = function () {
-
+  var changeCSS = function (cssFile) {
+    // var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+    // var oldlinkHref = $("head link#swapSheet").attr();
+    $("head link#swapSheet").attr('href',cssFile);
   }
   // Init
   ///////////////////////////
@@ -122,9 +132,7 @@ var appModuleName = (function () {
   // Reveal public methods
   return {
     'navyAPICall': navyAPICall,
-    'minorUIWrapper':minorUIWrapper
+    'changeCSS':changeCSS
   };
 })();
 appModuleName.navyAPICall();
-//trivial UI stuff
-appModuleName.minorUIWrapper();

@@ -2,29 +2,46 @@
 @import 'partials/_colors';
 
 //links
-$linkPrimary: $darkGrey;
-$linkHover: $brightBlue;
+$linkPrimary: $grey;
+$linkHover: $darkGrey;
 $linkVisited: $blue;
 
+//headers
+$h1: $white;
+
 /*TODO: Add CSS animation somewhere on here to meet course requirements*/
+h1, h2, h3 {
+  color: $h1;
+}
+p {
+  color: $linkPrimary;
+}
 a {
-  color: $darkGrey;
+  color: $linkPrimary;
   &:hover {
-    color: $brightBlue;
+    color: $linkHover;
     text-decoration: none;
   }
 }
 section {
   margin-bottom: 1%;
-  border-bottom: 1px solid $nearWhite;
 }
 body {
-  background-color: $white;
+  background-color: $nightBlue;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 90px;
 }
 .outline {
   display: none;
+}
+.container-fluid {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f38+0,3f4c6b+100 */
+background: rgb(27,31,56); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(27,31,56,1) 0%, rgba(63,76,107,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(27,31,56,1) 0%,rgba(63,76,107,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(27,31,56,1) 0%,rgba(63,76,107,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1f38', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
+
 }
 .sectionHeader {
   margin-bottom: 3%;
@@ -40,6 +57,7 @@ body {
   vertical-align: bottom;
   margin-right: 1%;
   background-color: $deepBlue;
+  box-shadow: 0 0 90px 1px $moonGlowYellow;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;
@@ -47,7 +65,7 @@ body {
   padding: 5px;
 }
 .my-nav-style {
-  background-color: $white;
+  background-color: $nightBlue;
   border-style: none;
   text-align: center;
   a {
@@ -58,8 +76,6 @@ body {
 }
 .my-main-banner {
   font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: $darkGrey;
-  border-bottom: 2px solid $grey;
   margin-bottom: 1%;
   margin-top: 1%;
   padding-bottom: 1%;
@@ -77,7 +93,7 @@ body {
   a{
     color: $brightBlue;
     &:hover{
-      color: $black;
+      color: $linkPrimary;
     }
   }
 }
@@ -87,6 +103,9 @@ body {
   font-size: 18px;
   margin-bottom: 10px;
   padding: 5px;
+  background-color: $nightBlue;
+  color: $white;
+  border: none;
 }
 .my-form button {
   margin: 0 auto;
@@ -107,8 +126,7 @@ body {
   }
 }
 .back-to-top {
-  background-color: $lightGrey;
-  color: $white;
+  color: $grey;
   padding: 0.5%;
   font-size: 20px;
   border-radius: 15%;
@@ -128,8 +146,8 @@ body {
 }
 .btn-round {
   border-radius: 50%;
-  background-color: $darkGrey;
-  color: $white;
+  background-color: $white;
+  color: $darkGrey;
   width: 50px;
   height: 50px;
 }
@@ -141,7 +159,7 @@ body {
 }
 /*override boostrap btn-primary style*/
 .btn-primary {
-  background-color: $brightBlue;
+  background-color: $midBlue;
 }
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
 .top-target{
@@ -153,8 +171,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: right;
-  min-height: 25%;
+  background-position: bottom;
 }
 /* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
@@ -163,11 +180,12 @@ body {
   }
 }
 #about{
-  background-image: url('../img/matherMe.jpg');
+  background-image: url('../img/milkyWayBlue.jpg');
 }
 #portfolioNavBar{
-  background: none;
+  background-color: rgba(0,0,0,0);
 }
+
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{
   color: $brightBlue;

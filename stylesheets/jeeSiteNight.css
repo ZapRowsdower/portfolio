@@ -1,21 +1,39 @@
 /*TODO: Add CSS animation somewhere on here to meet course requirements*/
+h1, h2, h3 {
+  color: #fff; }
+
+p {
+  color: #ccc; }
+
 a {
-  color: #4c4c4c; }
+  color: #ccc; }
   a:hover {
-    color: #00AAff;
+    color: #4c4c4c;
     text-decoration: none; }
 
 section {
-  margin-bottom: 1%;
-  border-bottom: 1px solid #efefef; }
+  margin-bottom: 1%; }
 
 body {
-  background-color: #fff;
+  background-color: #1b1f38;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 90px; }
 
 .outline {
   display: none; }
+
+.container-fluid {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1b1f38+0,3f4c6b+100 */
+  background: #1b1f38;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #1b1f38 0%, #3f4c6b 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #1b1f38 0%, #3f4c6b 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #1b1f38 0%, #3f4c6b 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1f38', endColorstr='#3f4c6b',GradientType=0 );
+  /* IE6-9 */ }
 
 .sectionHeader {
   margin-bottom: 3%; }
@@ -30,7 +48,8 @@ body {
   border-radius: 50%;
   vertical-align: bottom;
   margin-right: 1%;
-  background-color: #1f235d; }
+  background-color: #1f235d;
+  box-shadow: 0 0 90px 1px #dee2b6; }
 
 .navbar button.navbar-toggle {
   margin-left: 1%;
@@ -38,7 +57,7 @@ body {
   padding: 5px; }
 
 .my-nav-style {
-  background-color: #fff;
+  background-color: #1b1f38;
   border-style: none;
   text-align: center; }
   .my-nav-style a {
@@ -48,8 +67,6 @@ body {
 
 .my-main-banner {
   font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #4c4c4c;
-  border-bottom: 2px solid #ccc;
   margin-bottom: 1%;
   margin-top: 1%;
   padding-bottom: 1%; }
@@ -66,14 +83,17 @@ body {
   .txt-over-img a {
     color: #00AAff; }
     .txt-over-img a:hover {
-      color: #000; }
+      color: #ccc; }
 
 .my-form input {
   width: 100%;
   height: 50px;
   font-size: 18px;
   margin-bottom: 10px;
-  padding: 5px; }
+  padding: 5px;
+  background-color: #1b1f38;
+  color: #fff;
+  border: none; }
 
 .my-form button {
   margin: 0 auto;
@@ -93,8 +113,7 @@ body {
     color: #ccc; }
 
 .back-to-top {
-  background-color: #ddd;
-  color: #fff;
+  color: #ccc;
   padding: 0.5%;
   font-size: 20px;
   border-radius: 15%;
@@ -112,8 +131,8 @@ body {
 
 .btn-round {
   border-radius: 50%;
-  background-color: #4c4c4c;
-  color: #fff;
+  background-color: #fff;
+  color: #4c4c4c;
   width: 50px;
   height: 50px; }
 
@@ -125,7 +144,7 @@ body {
 
 /*override boostrap btn-primary style*/
 .btn-primary {
-  background-color: #00AAff; }
+  background-color: #006EFF; }
 
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
 .top-target {
@@ -137,18 +156,17 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: right;
-  min-height: 25%; }
+  background-position: bottom; }
 
 /* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
   .fixed-background {
     background-attachment: scroll; } }
 #about {
-  background-image: url("../img/matherMe.jpg"); }
+  background-image: url("../img/milkyWayBlue.jpg"); }
 
 #portfolioNavBar {
-  background: none; }
+  background-color: transparent; }
 
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{
@@ -179,4 +197,4 @@ body {
   opacity: 1;
 }*/
 
-/*# sourceMappingURL=jeeSite.css.map */
+/*# sourceMappingURL=jeeSiteNight.css.map */
