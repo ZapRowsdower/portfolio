@@ -27,6 +27,7 @@ var appModuleName = (function () {
   });
   // Private Methods
   ///////////////////////////
+  //sets the global moon percent var
   var setMoonPhasePercent = function (astroData){
     //sanity check
     if($.isEmptyObject(astroData)) {
@@ -43,6 +44,12 @@ var appModuleName = (function () {
     }
     console.log("Moon phase is: "+moonPhasePercent);
   }
+
+  //change the CSS: used to switch between day/night UI modes
+  var changeCSS = function (cssFile) {
+    $("head link#swapSheet").attr('href',cssFile);
+  }
+
   var drawMoon = function () {
     var moonElem = $(".moon");
     $(moonElem).attr("title","The moon is "+moonPhasePercent+" full");
@@ -120,19 +127,14 @@ var appModuleName = (function () {
        type: 'GET'
     });
   };
-  var changeCSS = function (cssFile) {
-    // var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-    // var oldlinkHref = $("head link#swapSheet").attr();
-    $("head link#swapSheet").attr('href',cssFile);
-  }
+
   // Init
   ///////////////////////////
   // x = 10 + x;
 
   // Reveal public methods
   return {
-    'navyAPICall': navyAPICall,
-    'changeCSS':changeCSS
+    'navyAPICall': navyAPICall
   };
 })();
 appModuleName.navyAPICall();
