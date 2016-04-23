@@ -45,6 +45,14 @@ var appModuleName = (function () {
     console.log("Moon phase is: "+moonPhasePercent);
   }
 
+  //TODO: move to a utility file
+  // convert percent to int for comparisions
+  var convertPercentToInt = function (percentage) {
+    var removeSymbol = percentage.replace(/%/g, "");
+    var int = parseInt(removeSymbol);
+    return int;
+  }
+
   //change the CSS: used to switch between day/night UI modes
   var changeCSS = function (cssFile) {
     $("head link#swapSheet").attr('href',cssFile);
@@ -56,8 +64,7 @@ var appModuleName = (function () {
     //TODO: Bonus points: use angular to do this
     //set css properties for moon element to portray current moon phase
     //up to half moon (if percentage between 0 - 50)
-    var moonPhaseToInt = moonPhasePercent.replace(/%/g, "");
-    moonPhaseToInt = parseInt(moonPhaseToInt);
+    var moonPhaseToInt = convertPercentToInt(moonPhasePercent);
 
     //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
     //if the moon is near or at full, change stylesheet to night style
