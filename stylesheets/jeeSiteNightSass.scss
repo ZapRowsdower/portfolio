@@ -58,6 +58,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1f38', end
   margin-right: 1%;
   background-color: $deepBlue;
   box-shadow: 0 0 90px 1px $moonGlowYellow;
+  transition: background-color 2s ease;
+}
+.right-shade{
+  background-color: $deepBlue;
+  border-right-color: $grey;
+  border-right-style: solid;
+  border-left-style: none;
+}
+.left-shade{
+  background-color: $grey;
+  border-left-color: $deepBlue;
+  border-left-style: solid;
+  border-right-style: none;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;

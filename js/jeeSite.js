@@ -81,23 +81,17 @@ var appModuleName = (function () {
   var changeCSSByMoon = function () {
     //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
     //if the moon is near or at full, change stylesheet to night style
-    if (moonPhaseInt >= 95) {
+    if (moonPhaseInt >= 80) {
       changeCSS(styleSheetLoc+styleSheetNight);
     } else changeCSS(styleSheetLoc+styleSheetDay);
     //
   }
 
-  //sets border and background colors based on moon phase
+  //sets styles to simulate moon phase
   var drawMoon = function () {
     //TODO: test over the course of the month
     var moonElem = $(".moon");
     var multiplier = 0.6;
-    var dark = "#1f235d";
-    var light = "#ccc";
-    var borderStyleSolid = "solid";
-    var borderStyleNone = "none";
-    // var waning = "Waning";
-    // var waxing = "Waxing";
     $(moonElem).attr("title","The moon is "+moonPhasePercent+" full");
     //set css properties for moon element to portray current moon phase
     //up to half moon (if percentage between 0 - 50)
@@ -106,13 +100,10 @@ var appModuleName = (function () {
       var moonMath = moonPhaseInt * multiplier;
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $(moonElem).css("background-color",dark);
-      $(moonElem).css("border-right-color",light);
+      //apply class and phase
+      $(moonElem).removeClass("left-shade");
+      $(moonElem).addClass("right-shade");
       $(moonElem).css("border-right-width",moonPhaseToPx);
-      $(moonElem).css("border-right-style",borderStyleSolid);
-      //reset conflicting styles
-      // $(moonElem).css("border-left-width","0px");
-      $(moonElem).css("border-left-style",borderStyleNone);
     } else {
     //After half moon (if percentage between 50 and 100):
     //apply different styles to simulate greater disc illumination.
@@ -124,13 +115,10 @@ var appModuleName = (function () {
       //convert back to string
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $(moonElem).css("background-color",light);
+      //apply class and phase
+      $(moonElem).removeClass("right-shade");
+      $(moonElem).addClass("left-shade");
       $(moonElem).css("border-left-width",moonPhaseToPx);
-      $(moonElem).css("border-left-style",borderStyleSolid);
-      $(moonElem).css("border-left-color",dark);
-      //reset conflicting styles
-      // $(moonElem).css("border-right-width","0px");
-      $(moonElem).css("border-right-style",borderStyleNone);
     }
   }
 
@@ -170,7 +158,7 @@ var appModuleName = (function () {
           setMoonPhasePercent(data);
           setMoonPeriod(data);
           setMoonPhaseInt();
-          changeCSSByMoon();
+          // changeCSSByMoon();
           drawMoon();
           rotateMoon();
        },

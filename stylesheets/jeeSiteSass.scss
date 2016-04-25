@@ -1,3 +1,4 @@
+/*TODO: Refactor as this is a mess*/
 @import 'partials/_typography';
 @import 'partials/_colors';
 
@@ -6,7 +7,6 @@ $linkPrimary: $darkGrey;
 $linkHover: $brightBlue;
 $linkVisited: $blue;
 
-/*TODO: Add CSS animation somewhere on here to meet course requirements*/
 a {
   color: $darkGrey;
   &:hover {
@@ -41,6 +41,18 @@ body {
   margin-right: 1%;
   background-color: $deepBlue;
   transition: background-color 2s ease;
+}
+.right-shade{
+  background-color: $deepBlue;
+  border-right-color: $grey;
+  border-right-style: solid;
+  border-left-style: none;
+}
+.left-shade{
+  background-color: $grey;
+  border-left-color: $deepBlue;
+  border-left-style: solid;
+  border-right-style: none;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;

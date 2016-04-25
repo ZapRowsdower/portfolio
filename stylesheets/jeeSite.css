@@ -1,4 +1,4 @@
-/*TODO: Add CSS animation somewhere on here to meet course requirements*/
+/*TODO: Refactor as this is a mess*/
 a {
   color: #4c4c4c; }
   a:hover {
@@ -32,6 +32,18 @@ body {
   margin-right: 1%;
   background-color: #1f235d;
   transition: background-color 2s ease; }
+
+.right-shade {
+  background-color: #1f235d;
+  border-right-color: #ccc;
+  border-right-style: solid;
+  border-left-style: none; }
+
+.left-shade {
+  background-color: #ccc;
+  border-left-color: #1f235d;
+  border-left-style: solid;
+  border-right-style: none; }
 
 .navbar button.navbar-toggle {
   margin-left: 1%;

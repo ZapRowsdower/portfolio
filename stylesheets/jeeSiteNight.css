@@ -49,7 +49,20 @@ body {
   vertical-align: bottom;
   margin-right: 1%;
   background-color: #1f235d;
-  box-shadow: 0 0 90px 1px #dee2b6; }
+  box-shadow: 0 0 90px 1px #dee2b6;
+  transition: background-color 2s ease; }
+
+.right-shade {
+  background-color: #1f235d;
+  border-right-color: #ccc;
+  border-right-style: solid;
+  border-left-style: none; }
+
+.left-shade {
+  background-color: #ccc;
+  border-left-color: #1f235d;
+  border-left-style: solid;
+  border-right-style: none; }
 
 .navbar button.navbar-toggle {
   margin-left: 1%;
