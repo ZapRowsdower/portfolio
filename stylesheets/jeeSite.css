@@ -53,7 +53,8 @@ body {
 .my-nav-style {
   background-color: #fff;
   border-style: none;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 0 0 10px 1px #4c4c4c; }
   .my-nav-style a {
     font-weight: bold;
     font-size: 20px;
