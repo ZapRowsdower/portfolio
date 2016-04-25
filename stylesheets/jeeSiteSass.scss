@@ -40,6 +40,7 @@ body {
   vertical-align: bottom;
   margin-right: 1%;
   background-color: $deepBlue;
+  transition: background-color 2s ease;
 }
 .navbar button.navbar-toggle{
   margin-left: 1%;

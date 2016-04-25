@@ -30,7 +30,8 @@ body {
   border-radius: 50%;
   vertical-align: bottom;
   margin-right: 1%;
-  background-color: #1f235d; }
+  background-color: #1f235d;
+  transition: background-color 2s ease; }
 
 .navbar button.navbar-toggle {
   margin-left: 1%;
