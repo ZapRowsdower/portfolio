@@ -6,6 +6,7 @@ var appModuleName = (function () {
   var styleSheetNight = "jeeSiteNight.css"
   var moonPhasePercent = "0%";
   var moonPhaseInt = 0;
+  var moonPeriod = "Waxing";
   //TODO: ensure you have all possible cases here. Cases are from data returned by
   //the navy API call
   var moonPhaseDict = {
@@ -34,6 +35,18 @@ var appModuleName = (function () {
     var removeSymbol = percentage.replace(/%/g, "");
     var int = parseInt(removeSymbol);
     return int;
+  }
+
+  //use navy data to set the moon period (waxing/waning)
+  var setMoonPeriod = function (astroData) {
+    //sanity check
+    if($.isEmptyObject(astroData)) {
+      alert("No astro data found");
+      return;
+    }
+    if(astroData.hasOwnProperty("curphase")) {
+      moonPeriod = astroData.curphase;
+    }
   }
 
   //sets the global moon percent var
@@ -74,44 +87,62 @@ var appModuleName = (function () {
     //
   }
 
+  //sets border and background colors based on moon phase
   var drawMoon = function () {
+    //TODO: test over the course of the month
     var moonElem = $(".moon");
+    var multiplier = 0.6;
+    var dark = "#1f235d";
+    var light = "#ccc";
+    var borderStyleSolid = "solid";
+    var borderStyleNone = "none";
+    // var waning = "Waning";
+    // var waxing = "Waxing";
     $(moonElem).attr("title","The moon is "+moonPhasePercent+" full");
-
     //set css properties for moon element to portray current moon phase
     //up to half moon (if percentage between 0 - 50)
     if(moonPhaseInt >= 0 && moonPhaseInt <= 50){
       //some weird math to make the pixel values map to the percentage better
-      var moonMath = moonPhaseInt * 0.6;
+      var moonMath = moonPhaseInt * multiplier;
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $(moonElem).css("background-color","#1f235d");
-      $(moonElem).css("border-right-color","#ccc");
+      $(moonElem).css("background-color",dark);
+      $(moonElem).css("border-right-color",light);
       $(moonElem).css("border-right-width",moonPhaseToPx);
-      $(moonElem).css("border-right-style","solid");
+      $(moonElem).css("border-right-style",borderStyleSolid);
       //reset conflicting styles
-      $(moonElem).css("border-left-width","0px");
-      $(moonElem).css("border-left-style","none");
+      // $(moonElem).css("border-left-width","0px");
+      $(moonElem).css("border-left-style",borderStyleNone);
     } else {
-      //TODO: test over the course of the month
     //After half moon (if percentage between 50 and 100):
     //apply different styles to simulate greater disc illumination.
       //First, subtract the moon phase value from 100 to set a proper border width
       moonPhaseInt = 100-moonPhaseInt;
       //some math to make the pixel values map to the percentage better (30px border)
       //width ends up being half moon phase, so mult. by 0.6 adjusts the values
-      var moonMath = moonPhaseInt * 0.6;
+      var moonMath = moonPhaseInt * multiplier;
       //convert back to string
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
-      $(moonElem).css("background-color","#ccc");
+      $(moonElem).css("background-color",light);
       $(moonElem).css("border-left-width",moonPhaseToPx);
-      $(moonElem).css("border-left-style","solid");
-      $(moonElem).css("border-left-color","#1f235d");
+      $(moonElem).css("border-left-style",borderStyleSolid);
+      $(moonElem).css("border-left-color",dark);
       //reset conflicting styles
-      $(moonElem).css("border-right-width","0px");
-      $(moonElem).css("border-right-style","none");
+      // $(moonElem).css("border-right-width","0px");
+      $(moonElem).css("border-right-style",borderStyleNone);
     }
+  }
+
+  //based on waxing/waning, rotate moon to simulate waxing/waning appearance
+  var rotateMoon = function () {
+    var moonElem = $(".moon");
+    var reWaning = new RegExp('Waning','g');
+    // var reWaxing = new RegExp('/Wax/g');
+    //if its waning, rotate the moon 180
+    if(reWaning.test(moonPeriod) == true) {
+      moonElem.css("transform","rotate(180deg)");
+    } else moonElem.css("transform","rotate(0deg)");
   }
 
   // Public Methods, must be exposed in return statement below
@@ -137,9 +168,11 @@ var appModuleName = (function () {
        },
        success: function(data) {
           setMoonPhasePercent(data);
+          setMoonPeriod(data);
           setMoonPhaseInt();
           changeCSSByMoon();
           drawMoon();
+          rotateMoon();
        },
        type: 'GET'
     });
