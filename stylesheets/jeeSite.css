@@ -60,6 +60,14 @@ body {
     font-size: 20px;
     letter-spacing: 0.05em; }
 
+.my-sub-nav-style {
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  border: none; }
+  .my-sub-nav-style a {
+    font-size: 18px; }
+
 .my-main-banner {
   font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: #4c4c4c;
@@ -160,9 +168,6 @@ body {
     background-attachment: scroll; } }
 #about {
   background-image: url("../img/matherMe.jpg"); }
-
-#portfolioNavBar {
-  background: none; }
 
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{

@@ -1,21 +1,21 @@
 var appModuleName = (function () {
   // Properties
   ///////////////////////////
-  var styleSheetLoc = "stylesheets/";
-  var styleSheetDay = "jeeSite.css";
-  var styleSheetNight = "jeeSiteNight.css"
-  var moonPhasePercent = "0%";
-  var moonPhaseInt = 0;
-  var moonPeriod = "Waxing";
-  //TODO: ensure you have all possible cases here. Cases are from data returned by
-  //the navy API call
-  var moonPhaseDict = {
-    "New Moon":"10%",
-    "First Quarter":"25%",
-    "Half Moon":"50%",
-    "Full Moon":"100%",
-    "Last Quarter":"25%"
-  };
+  var styleSheetLoc = "stylesheets/",
+      styleSheetDay = "jeeSite.css",
+      styleSheetNight = "jeeSiteNight.css",
+      moonPhasePercent = "0%",
+      moonPhaseInt = 0,
+      moonPeriod = "Waxing",
+      //TODO: ensure you have all possible cases here. Cases are from data returned by
+      //the navy API call
+      moonPhaseDict = {
+        "New Moon":"10%",
+        "First Quarter":"25%",
+        "Half Moon":"50%",
+        "Full Moon":"100%",
+        "Last Quarter":"25%"
+      };
 
   //ANGULAR MODULE: A module is a collection of services, directives, controllers,
   //filters, and configuration information. You can think of a module as a container
@@ -35,7 +35,7 @@ var appModuleName = (function () {
     var removeSymbol = percentage.replace(/%/g, "");
     var int = parseInt(removeSymbol);
     return int;
-  }
+  };
 
   //use navy data to set the moon period (waxing/waning)
   var setMoonPeriod = function (astroData) {
@@ -47,7 +47,7 @@ var appModuleName = (function () {
     if(astroData.hasOwnProperty("curphase")) {
       moonPeriod = astroData.curphase;
     }
-  }
+  };
 
   //sets the global moon percent var
   var setMoonPhasePercent = function (astroData){
@@ -65,17 +65,17 @@ var appModuleName = (function () {
       moonPhasePercent = moonPhaseDict[textPhase];
     }
     console.log("Moon phase is: "+moonPhasePercent);
-  }
+  };
 
   //set an int version of the moon phase (ex: '100%' == 100)
   var setMoonPhaseInt = function () {
     moonPhaseInt = convertPercentToInt(moonPhasePercent);
-  }
+  };
 
   //change the CSS: used to switch between day/night UI modes
   var changeCSS = function (cssFile) {
     $("head link#swapSheet").attr('href',cssFile);
-  }
+  };
 
   //change which CSS file to use based on moon phase
   var changeCSSByMoon = function () {
@@ -85,7 +85,7 @@ var appModuleName = (function () {
       changeCSS(styleSheetLoc+styleSheetNight);
     } else changeCSS(styleSheetLoc+styleSheetDay);
     //
-  }
+  };
 
   //sets styles to simulate moon phase
   var drawMoon = function () {
@@ -120,7 +120,7 @@ var appModuleName = (function () {
       $(moonElem).addClass("left-shade");
       $(moonElem).css("border-left-width",moonPhaseToPx);
     }
-  }
+  };
 
   //based on waxing/waning, rotate moon to simulate waxing/waning appearance
   var rotateMoon = function () {
@@ -128,10 +128,10 @@ var appModuleName = (function () {
     var reWaning = new RegExp('Waning','g');
     // var reWaxing = new RegExp('/Wax/g');
     //if its waning, rotate the moon 180
-    if(reWaning.test(moonPeriod) == true) {
+    if(reWaning.test(moonPeriod) === true) {
       moonElem.css("transform","rotate(180deg)");
     } else moonElem.css("transform","rotate(0deg)");
-  }
+  };
 
   // Public Methods, must be exposed in return statement below
   ///////////////////////////

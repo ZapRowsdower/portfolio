@@ -70,6 +70,15 @@ body {
   }
   box-shadow: 0 0 10px 1px $darkGrey;
 }
+.my-sub-nav-style {
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  border: none;
+  a {
+    font-size: 18px;
+  }
+}
 .my-main-banner {
   font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   color: $darkGrey;
@@ -179,9 +188,7 @@ body {
 #about{
   background-image: url('../img/matherMe.jpg');
 }
-#portfolioNavBar{
-  background: none;
-}
+
 /*goofy fun with css hover events and such. trivial*/
 /*#moon>h3{
   color: $brightBlue;
