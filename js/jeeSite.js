@@ -176,3 +176,59 @@ var appModuleName = (function () {
   };
 })();
 appModuleName.navyAPICall();
+$("#photoPortfolio").nanoGallery({
+    thumbnailWidth:'auto',thumbnailHeight:500,
+    thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
+    thumbnailLazyLoad: true,
+    theme: 'default',
+    items: [
+        {
+            // image url
+            src: 'img/MtRussell.jpg',
+            // Title
+            title: 'Mt. Russell',
+            // Description
+            description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
+        },
+        {
+            src: 'img/SierraButteStarParty.jpg',
+            title: 'Sierra Butte Star Party',
+            description: '30,000 year old light from the center of the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes.'
+        },
+        {
+            src: 'img/milkyWayBlue.jpg',
+            title: 'Sierra Butte Star Party'
+        },
+        {
+            src: 'img/MtRitterLakeReflection.jpg',
+            title: 'Sierra Butte Star Party',
+            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground.'
+        },
+        {
+            src: 'img/GodRays.jpg',
+            title: 'Washington State God Rays',
+            description: 'Sun shining through the forest canopy after a cold September rain near Mt. Adams in Washington state.'
+        }
+    ]
+});
+// $("#photoPortfolio").nanoGallery({
+//     thumbnailWidth:100,thumbnailHeight:100,
+//     items: [
+//         {
+//             // image url
+//             src: 'img/milkyWayBlue.jpg',
+//             // thumbnail url
+//             srct: 'img/thumb_MtRussell.jpg',
+//             // Title
+//             title: 'Mt. Russell',
+//             // Description
+//             description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
+//         },
+//         {
+//             src: 'img/SierraButteStarParty.jpg',
+//             srct: 'img/thumb_SierraButteStarParty.jpg',
+//             title: 'Sierra Butte Star Party',
+//             description: 'The 30,000 year old light from the center of the Milky Way galaxy blazes between gaps in the trees in northern California near the Sierra Buttes.'
+//         }
+//     ]
+// });
