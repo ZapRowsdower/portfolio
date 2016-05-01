@@ -194,21 +194,27 @@ $("#photoPortfolio").nanoGallery({
         {
             src: 'img/SierraButteStarParty.jpg',
             title: 'Sierra Butte Star Party',
-            description: 'Ancient light from the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes.'
+            description: 'Ancient light from the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
         },
         {
             src: 'img/milkyWayBlue.jpg',
-            title: 'Sierra Butte Star Party'
+            title: 'Good Seeing',
+            description: 'Skies free of light pollution reveal thousands of stars above'
         },
         {
             src: 'img/MtRitterLakeReflection.jpg',
             title: 'Mt. Ritter',
-            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground.'
+            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground'
         },
         {
             src: 'img/GodRays.jpg',
-            title: 'Washington State God Rays',
-            description: 'The sun shines through forest canopy after a cold September rain near Mt. Adams.'
+            title: 'God Rays',
+            description: 'The sun shines through forest canopy after a cold September rain near Mt. Adams in Washington state'
+        },
+        {
+            src: 'img/FoggyMeadowNearRainier.jpg',
+            title: 'Foggy Meadow Near Rainier',
+            description: 'Fog begins to stir as dawn breaks over a meadow near Mt. Rainier'
         }
     ]
 });

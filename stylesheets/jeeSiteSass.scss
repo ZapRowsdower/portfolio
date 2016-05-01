@@ -80,7 +80,7 @@ body {
   }
 }
 .my-main-banner {
-  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: $helveticaNeueThin;
   color: $darkGrey;
   border-bottom: 2px solid $grey;
   margin-bottom: 1%;
@@ -94,7 +94,7 @@ body {
 }
 .txt-over-img {
   background-color: rgba(0, 0, 0, 0.3);
-  min-height: inherit;
+  min-height: 100%;
   padding: 5%;
   color: $white;
   a{
@@ -177,12 +177,13 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: right;
-  min-height: 25%;
+  height: 640px;
 }
 /* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
   .fixed-background{
     background-attachment: scroll;
+    height: 100%;
   }
 }
 #about{
