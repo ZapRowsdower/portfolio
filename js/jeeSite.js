@@ -63,7 +63,6 @@ var appModuleName = (function () {
     var int = parseInt(removeSymbol);
     return int;
   };
-
   //use navy data to set the moon period (waxing/waning)
   var setMoonPeriod = function (astroData) {
     //sanity check
@@ -75,7 +74,6 @@ var appModuleName = (function () {
       moonPeriod = astroData.curphase;
     }
   };
-
   //sets the global moon percent var
   var setMoonPhasePercent = function (astroData){
     //sanity check
@@ -93,17 +91,14 @@ var appModuleName = (function () {
     }
     console.log("Moon phase is: "+moonPhasePercent);
   };
-
   //set an int version of the moon phase (ex: '100%' == 100)
   var setMoonPhaseInt = function () {
     moonPhaseInt = convertPercentToInt(moonPhasePercent);
   };
-
   //change the CSS: used to switch between day/night UI modes
   var changeCSS = function (cssFile) {
     $("head link#swapSheet").attr('href',cssFile);
   };
-
   //change which CSS file to use based on moon phase
   var changeCSSByMoon = function () {
     //TODO: works but flashes daytime UI before loading night style and is probably super sloppy
@@ -113,7 +108,6 @@ var appModuleName = (function () {
     } else changeCSS(styleSheetLoc+styleSheetDay);
     //
   };
-
   //sets styles to simulate moon phase
   var drawMoon = function () {
     //TODO: test over the course of the month
