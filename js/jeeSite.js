@@ -15,18 +15,45 @@ var appModuleName = (function () {
         "Half Moon":"50%",
         "Full Moon":"100%",
         "Last Quarter":"25%"
-      };
+      },
+      //nanogallery photo objects
+      //TODO: consider moving to another JS file, esp. if this becomes a huge array
+      photoMap = [
+        {
+            // image url
+            src: 'img/MtRussell.jpg',
+            // Title
+            title: 'Mt. Russell',
+            // Description
+            description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
+        },
+        {
+            src: 'img/SierraButteStarParty.jpg',
+            title: 'Sierra Butte Star Party',
+            description: 'Ancient light from the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
+        },
+        {
+            src: 'img/milkyWayBlue.jpg',
+            title: 'Good Seeing',
+            description: 'Skies free of light pollution reveal thousands of stars above'
+        },
+        {
+            src: 'img/MtRitterLakeReflection.jpg',
+            title: 'Mt. Ritter',
+            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground'
+        },
+        {
+            src: 'img/GodRays.jpg',
+            title: 'God Rays',
+            description: 'The sun shines through forest canopy after a cold September rain near Mt. Adams in Washington state'
+        },
+        {
+            src: 'img/FoggyMeadowNearRainier.jpg',
+            title: 'Foggy Meadow Near Rainier',
+            description: 'Fog begins to stir as dawn breaks over a meadow near Mt. Rainier'
+        }
+    ];
 
-  //ANGULAR MODULE: A module is a collection of services, directives, controllers,
-  //filters, and configuration information. You can think of a module as a container
-  // for the different parts of your app – controllers, services, filters, directives, etc.
-  //https://docs.angularjs.org/guide/module
-  var appNameApp =  angular.module('appName', []);
-  //ANGULAR CONTROLLER. This is where values and functions for the application
-  //are defined. The purpose of controllers is to expose variables and functionality to expressions and directives.
-  appNameApp.controller('TestController', function(){
-
-  });
   // Private Methods
   ///////////////////////////
   //TODO: move to a utility file
@@ -121,7 +148,6 @@ var appModuleName = (function () {
       $(moonElem).css("border-left-width",moonPhaseToPx);
     }
   };
-
   //based on waxing/waning, rotate moon to simulate waxing/waning appearance
   var rotateMoon = function () {
     var moonElem = $(".moon");
@@ -132,9 +158,51 @@ var appModuleName = (function () {
       moonElem.css("transform","rotate(180deg)");
     } else moonElem.css("transform","rotate(0deg)");
   };
+  //get the requested object from local storage and convert back to an object
+  var getData = function (keyStr){
+    var data = localStorage.getItem(keyStr);
+    if (data !== null) {
+      data = JSON.parse(data);
+    }
+    return data;
+  };
+  //take the data object param, stringify it, and store it in localStorage
+  var setData = function (keyStr,data) {
+    localStorage.setItem(keyStr,JSON.stringify(data));
+  };
 
   // Public Methods, must be exposed in return statement below
   ///////////////////////////
+  //wrapper to do everything needed to show the proper moon phase based on navy data
+  var buildMoonWrapper = function (moonData) {
+    setMoonPhasePercent(moonData);
+    setMoonPeriod(moonData);
+    setMoonPhaseInt();
+    // changeCSSByMoon();
+    drawMoon();
+    rotateMoon();
+  };
+  //check if the browser supports HTML5 local storage
+  var hasLocalStorage = function () {
+    if(typeof(Storage) !== "undefined") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  //check date of api call
+  var hasCurrentData = function (keyStr, dateProp) {
+    //check if requested data has been stored...
+    var storedData = getData(keyStr);
+    if(storedData !== null) {
+      //if stored, check if today's UTC day matches stored UTC day
+      var storedDataDate = storedData[dateProp];
+      var today = new Date().getUTCDay();
+      if(storedDataDate === today) {
+        return true;
+      } else return false;
+    } else return false;
+  };
   var navyAPICall = function () {
     //get all astronomical data for sun and moon from a US Navy API. Params needed:
     var loc = "Washington%20,%20DC";
@@ -155,87 +223,43 @@ var appModuleName = (function () {
           alert("error");
        },
        success: function(data) {
-          setMoonPhasePercent(data);
-          setMoonPeriod(data);
-          setMoonPhaseInt();
-          // changeCSSByMoon();
-          drawMoon();
-          rotateMoon();
+          //if local storage support exists, store the date of the request
+          if(hasLocalStorage() === true){
+            var utcDay = new Date().getUTCDay();
+            data.reqUTCDay = utcDay;
+            setData("moonDataJSON",data);
+          }
+          buildMoonWrapper(data);
        },
        type: 'GET'
     });
   };
-
-  // Init
-  ///////////////////////////
-  // x = 10 + x;
-
+  var initNanoGallery = function (galleryElem) {
+    $(galleryElem).nanoGallery({
+        thumbnailWidth:'auto',thumbnailHeight:500,
+        thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
+        thumbnailLazyLoad: true,
+        theme: 'light',
+        viewerToolbar: {style: 'fullWidth'} ,
+        items: photoMap
+    });
+  };
   // Reveal public methods
   return {
-    'navyAPICall': navyAPICall
+    'getData': getData,
+    'hasLocalStorage': hasLocalStorage,
+    'hasCurrentData': hasCurrentData,
+    'navyAPICall': navyAPICall,
+    'buildMoonWrapper': buildMoonWrapper,
+    'initNanoGallery': initNanoGallery
   };
 })();
-appModuleName.navyAPICall();
-$("#photoPortfolio").nanoGallery({
-    thumbnailWidth:'auto',thumbnailHeight:500,
-    thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
-    thumbnailLazyLoad: true,
-    theme: 'light',
-    viewerToolbar: {style: 'fullWidth'} ,
-    items: [
-        {
-            // image url
-            src: 'img/MtRussell.jpg',
-            // Title
-            title: 'Mt. Russell',
-            // Description
-            description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
-        },
-        {
-            src: 'img/SierraButteStarParty.jpg',
-            title: 'Sierra Butte Star Party',
-            description: 'Ancient light from the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
-        },
-        {
-            src: 'img/milkyWayBlue.jpg',
-            title: 'Good Seeing',
-            description: 'Skies free of light pollution reveal thousands of stars above'
-        },
-        {
-            src: 'img/MtRitterLakeReflection.jpg',
-            title: 'Mt. Ritter',
-            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground'
-        },
-        {
-            src: 'img/GodRays.jpg',
-            title: 'God Rays',
-            description: 'The sun shines through forest canopy after a cold September rain near Mt. Adams in Washington state'
-        },
-        {
-            src: 'img/FoggyMeadowNearRainier.jpg',
-            title: 'Foggy Meadow Near Rainier',
-            description: 'Fog begins to stir as dawn breaks over a meadow near Mt. Rainier'
-        }
-    ]
-});
-// $("#photoPortfolio").nanoGallery({
-//     thumbnailWidth:100,thumbnailHeight:100,
-//     items: [
-//         {
-//             // image url
-//             src: 'img/milkyWayBlue.jpg',
-//             // thumbnail url
-//             srct: 'img/thumb_MtRussell.jpg',
-//             // Title
-//             title: 'Mt. Russell',
-//             // Description
-//             description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
-//         },
-//         {
-//             src: 'img/SierraButteStarParty.jpg',
-//             srct: 'img/thumb_SierraButteStarParty.jpg',
-//             title: 'Sierra Butte Star Party',
-//             description: 'The 30,000 year old light from the center of the Milky Way galaxy blazes between gaps in the trees in northern California near the Sierra Buttes.'
-//         }
-//     ]
-// });
+if(appModuleName.hasLocalStorage() === true) {
+  //moon data is out of date so call the navy api
+  if(appModuleName.hasCurrentData("moonDataJSON", "reqUTCDay") === false) {
+    appModuleName.navyAPICall();
+  //not out of date so retrieve stored data and draw the moon
+  } else appModuleName.buildMoonWrapper(appModuleName.getData("moonDataJSON"));
+} else appModuleName.navyAPICall();
+
+appModuleName.initNanoGallery('#photoPortfolio');

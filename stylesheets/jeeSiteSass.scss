@@ -41,6 +41,7 @@ body {
   margin-right: 1%;
   background-color: $deepBlue;
   transition: background-color 2s ease;
+  border-right: 25px solid $grey;
 }
 .right-shade{
   background-color: $deepBlue;
@@ -179,43 +180,16 @@ body {
   background-position: right;
   height: 640px;
 }
+#about{
+  background-image: url('../img/matherMe.jpg');
+}
 /* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
   .fixed-background{
     background-attachment: scroll;
     height: 100%;
   }
+  #about{
+    background-image: url('../img/matherMe_small.jpg');
+  }
 }
-#about{
-  background-image: url('../img/matherMe.jpg');
-}
-
-/*goofy fun with css hover events and such. trivial*/
-/*#moon>h3{
-  color: $brightBlue;
-  cursor: pointer;
-  position: relative;
-  left: 25%;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-#moon:hover>h3{
-  opacity: 1;
-}
-
-#moon ~p#moonHelpText {
-  position: absolute;
-  left: 50%;
-  margin-left: -10%;
-  background-color: $black;
-  color: $white;
-  opacity: 0;
-  transition: opacity 1s ease;
-  padding: 1%;
-  z-index: 1;
-}*/
-
-/*#moon:hover ~p#moonHelpText{
-  opacity: 1;
-}*/
