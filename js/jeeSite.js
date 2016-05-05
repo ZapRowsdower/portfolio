@@ -30,12 +30,12 @@ var appModuleName = (function () {
         {
             src: 'img/SierraButteStarParty.jpg',
             title: 'Sierra Butte Star Party',
-            description: 'Ancient light from the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
+            description: 'Ancient star light near the center of the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
         },
         {
             src: 'img/milkyWayBlue.jpg',
             title: 'Good Seeing',
-            description: 'Skies free of light pollution reveal thousands of stars above'
+            description: 'Skies free of light pollution reveal thousands of stars above the Pacific Crest Trail'
         },
         {
             src: 'img/MtRitterLakeReflection.jpg',
@@ -228,7 +228,21 @@ var appModuleName = (function () {
        type: 'GET'
     });
   };
-  var initNanoGallery = function (galleryElem) {
+  var flickrNano = function (galleryElem) {
+    $(galleryElem).nanoGallery({
+      kind: 'flickr',
+      userID: '142772868@N08',
+      thumbnailWidth:'auto',
+      thumbnailHeight:250,
+      thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
+      thumbnailLazyLoad: true,
+      theme: 'light',
+      viewerToolbar: {style: 'fullWidth'} ,
+      thumbnailGutterWidth : 0,
+      thumbnailGutterHeight : 0
+     });
+  };
+  var initNanoGalleryLocal = function (galleryElem) {
     $(galleryElem).nanoGallery({
         thumbnailWidth:'auto',thumbnailHeight:500,
         thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
@@ -245,7 +259,7 @@ var appModuleName = (function () {
     'hasCurrentData': hasCurrentData,
     'navyAPICall': navyAPICall,
     'buildMoonWrapper': buildMoonWrapper,
-    'initNanoGallery': initNanoGallery
+    'initNanoGallery': flickrNano
   };
 })();
 if(appModuleName.hasLocalStorage() === true) {

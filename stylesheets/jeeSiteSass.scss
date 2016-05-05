@@ -1,6 +1,7 @@
 /*TODO: Refactor as this is a mess*/
 @import 'partials/_typography';
 @import 'partials/_colors';
+@import 'partials/_mixins';
 
 //links
 $linkPrimary: $darkGrey;
@@ -39,12 +40,14 @@ body {
   border-radius: 50%;
   vertical-align: bottom;
   margin-right: 1%;
-  background-color: $deepBlue;
-  transition: background-color 2s ease;
+  @include radial-gradient($lessDeepBlue, $deepBlue);
+  // background-color: $deepBlue;
+  transition: border 2s ease;
   border-right: 25px solid $grey;
 }
 .right-shade{
-  background-color: $deepBlue;
+  @include radial-gradient($lessDeepBlue, $deepBlue);
+  // background-color: $deepBlue;
   border-right-color: $grey;
   border-right-style: solid;
   border-left-style: none;
@@ -182,6 +185,9 @@ body {
 }
 #about{
   background-image: url('../img/matherMe.jpg');
+}
+#webPortfolio{
+  display: none;
 }
 /* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
 @media (max-width: 1024px) {
