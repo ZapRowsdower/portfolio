@@ -17,46 +17,54 @@
       <header id="top" class="top-target">
         <h1 class="outline nocontent">Jonathan Ely's Web Portfolio</h1>
       </header>
-      <!-- Refactor nav bar to stay fixed at top. Also nest the hamburger menu button with h1, logo -->
       <nav class="navbar navbar-default navbar-fixed-top my-nav-style">
         <h2 class="outline nocontent">Top Navigation</h2>
-        <div class="col-xs-12 text-center my-main-banner">
-          <div class="row">
-            <a href="#top" target="_self">
-              <div class="moon"></div>
-              <h1 class="text-center">Jonathan Ely</h1>
-            </a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-        </div>
-        <div class="collapse navbar-collapse">
-          <div class="row">
-            <div class="col-xs-4">
+        <div class="my-main-banner">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNavSmall">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#top" target="_self" class="logo-nav">
+            <div class="moon"></div>
+            <h1 class="text-center">Jonathan Ely</h1>
+          </a>
+          <ul class="hidden-xs">
+            <li>
               <a href="#top">About</a>
-            </div>
-            <div class="col-xs-4">
+            </li>
+            <li>
               <a href="#portfolio">Portfolio</a>
-            </div>
-            <div class="col-xs-4">
+            </li>
+            <li>
               <a href="#contact">Contact</a>
+            </li>
+          </ul>
+          <div id="mainNavSmall" class="collapse navbar-collapse">
+            <div class="row visible-xs-block">
+              <div class="col-xs-4">
+                <a href="#top">About</a>
+              </div>
+              <div class="col-xs-4">
+                <a href="#portfolio">Portfolio</a>
+              </div>
+              <div class="col-xs-4">
+                <a href="#contact">Contact</a>
+              </div>
             </div>
           </div>
         </div>
       </nav>
       <section class="row lead text-left fixed-background" id="about">
         <h2 class="outline nocontent">About Me Section</h2>
-        <article class="col-md-5 txt-over-img">
+        <article class="col-sm-5 txt-over-img">
           <h3 class="my-text-shadow text-center">
             I'm a geek that goes outside
           </h3>
           <p class="my-text-shadow">
             <!-- TODO: link to portfolio content pertaining to PCT -->
-            I walked from Mexico to Canada on the 2,650 mile long <b><a href="http://www.pcta.org/">Pacific Crest Trail.</a></b>
+            I walked from Mexico to Canada on the 2,650 mile long <b><a href="http://www.pcta.org/">Pacific Crest Trail</a></b> and took a few <b><a href="#portfolio">pictures.</a></b>
           </p>
           <p class="my-text-shadow">
             <!-- TODO: link to actual code/ui page of my portfolio, not just portfolio -->
@@ -73,7 +81,7 @@
         <nav id="portfolioNavBar" title="My Portfolio" class="navbar navbar-default my-sub-nav-style">
           <h3 class="outline nocontent">Portfolio Navigation</h3>
           <h3 title="Portfolio" class="sectionHeader text-center">Portfolio</h3>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#portfolioNav">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -82,16 +90,16 @@
           <div id="portfolioNav" class="collapse navbar-collapse">
             <div class="row">
               <div class="col-xs-3">
-                <a href="#"><b>&lt;/&gt;</b>&nbsp; Web</a>
+                <a href="#"><i class="glyphicon glyphicon-camera"></i><p>Photos</p></a>
               </div>
               <div class="col-xs-3">
-                <a href="#"><i class="glyphicon glyphicon-camera">&nbsp;</i>Photos</a>
+                <a href="#"><b>&lt;/&gt;</b><p>Web</p></a>
               </div>
               <div class="col-xs-3">
-                <a href="#"><i class="glyphicon glyphicon-film">&nbsp;</i>Videos</a>
+                <a href="#"><i class="glyphicon glyphicon-film"></i><p>Videos</p></a>
               </div>
               <div class="col-xs-3">
-                <a href="#"><i class="glyphicon glyphicon-pencil">&nbsp;</i>Blog</a>
+                <a href="#"><i class="glyphicon glyphicon-pencil"></i><p>Blog</p></a>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ section {
 body {
   background-color: $white;
   /*padding top because navbar is fixed position and overlaps content*/
-  padding-top: 90px;
+  padding-top: 80px;
 }
 .outline {
   display: none;
@@ -58,11 +58,6 @@ body {
   border-left-style: solid;
   border-right-style: none;
 }
-.navbar button.navbar-toggle{
-  margin-left: 1%;
-  margin-right: 4%;
-  padding: 5px;
-}
 .my-nav-style {
   background-color: $white;
   border-style: none;
@@ -87,13 +82,16 @@ body {
   font-family: $helveticaNeueThin;
   color: $darkGrey;
   border-bottom: 2px solid $grey;
-  margin-bottom: 1%;
-  margin-top: 1%;
+  // margin-bottom: 1%;
+  // margin-top: 1%;
   padding-bottom: 1%;
   h1 {
     display: inline-block;
     vertical-align: middle;
     font-weight: 200;
+  }
+  button.navbar-toggle {
+    margin-top: 22px;
   }
 }
 .txt-over-img {
@@ -169,6 +167,7 @@ body {
 /*override boostrap btn-primary style*/
 .btn-primary {
   background-color: $brightBlue;
+  border: none;
 }
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
 .top-target{
@@ -181,7 +180,12 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: right;
-  height: 640px;
+  height: 700px;
+}
+h3[title="Portfolio"]{
+  //TODO: create inline header class and apply to main h1 header as well as this
+
+  display: inline-block;
 }
 #about{
   background-image: url('../img/matherMe.jpg');
@@ -198,4 +202,46 @@ body {
   #about{
     background-image: url('../img/matherMe_small.jpg');
   }
+  .navbar-collapse a {
+    padding: 1%;
+  }
+}
+
+@media (min-width: 768px){
+  .hidden-xs {
+    display: inline-block;
+    width: 42%;
+    float: right;
+    margin-top: 2%;
+  }
+  .hidden-xs li {
+    display: inline-block;
+    margin-right: 4%;
+
+  }
+  .my-nav-style {
+    text-align: left;
+    a.logo-nav{
+      margin-left: 5%;
+    }
+  }
+}
+
+@media print {
+  .my-nav-style, .back-to-top-wrapper, .my-form {
+    display: none;
+  }
+  .fixed-background {
+    height: auto;
+  }
+  .txt-over-img{
+    padding: 0;
+  }
+  #about{
+    background-image: none;
+  }
+}
+#test li{
+  display: inline;
+  list-style: none;
 }
