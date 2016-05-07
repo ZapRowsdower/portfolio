@@ -2,12 +2,6 @@
 @import 'partials/_typography';
 @import 'partials/_colors';
 @import 'partials/_mixins';
-
-//links
-$linkPrimary: $darkGrey;
-$linkHover: $brightBlue;
-$linkVisited: $blue;
-
 a {
   color: $darkGrey;
   &:hover {
@@ -20,7 +14,7 @@ section {
   border-bottom: 1px solid $nearWhite;
 }
 body {
-  background-color: $white;
+  background-color: $nearWhite;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 80px;
 }
@@ -28,7 +22,7 @@ body {
   display: none;
 }
 .sectionHeader {
-  margin-bottom: 3%;
+  margin-bottom: 1%;
 }
 .elem-center {
   margin-left: 0 auto;
@@ -43,17 +37,17 @@ body {
   @include radial-gradient($lessDeepBlue, $deepBlue);
   // background-color: $deepBlue;
   transition: border 2s ease;
-  border-right: 25px solid $grey;
+  border-right: 18px solid $moonLight;
 }
 .right-shade{
   @include radial-gradient($lessDeepBlue, $deepBlue);
   // background-color: $deepBlue;
-  border-right-color: $grey;
+  border-right-color: $moonLight;
   border-right-style: solid;
   border-left-style: none;
 }
 .left-shade{
-  background-color: $grey;
+  background-color: $moonLight;
   border-left-color: $deepBlue;
   border-left-style: solid;
   border-right-style: none;
@@ -102,7 +96,7 @@ body {
   a{
     color: $brightBlue;
     &:hover{
-      color: $black;
+      color: $grey;
     }
   }
 }
@@ -177,56 +171,68 @@ body {
 }
 .fixed-background {
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   background-position: right;
-  height: 700px;
-}
-h3[title="Portfolio"]{
-  //TODO: create inline header class and apply to main h1 header as well as this
-
-  display: inline-block;
 }
 #about{
-  background-image: url('../img/matherMe.jpg');
+  background-image: url('../img/matherMe_small.jpg');
 }
 #webPortfolio{
   display: none;
 }
-/* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
-@media (max-width: 1024px) {
-  .fixed-background{
-    background-attachment: scroll;
-    height: 100%;
+#portfolioNav {
+  label{
+    margin-left: 2%;
+    cursor: pointer;
   }
-  #about{
-    background-image: url('../img/matherMe_small.jpg');
-  }
-  .navbar-collapse a {
-    padding: 1%;
+  .glyphicon {
+    font-size: 24px;
+    vertical-align: sub;
   }
 }
-
+// iOS safari can't handle the bg-attachment fixed, so on those devices use 'scroll'
+@media (min-width: 1025px){
+  .fixed-background{
+    background-attachment: fixed;
+    height: 700px;
+  }
+  #about {
+    background-image: url('../img/matherMe.jpg');
+  }
+}
+// should cover tablets thru desktops
 @media (min-width: 768px){
   .hidden-xs {
     display: inline-block;
     width: 42%;
     float: right;
     margin-top: 2%;
-  }
-  .hidden-xs li {
-    display: inline-block;
-    margin-right: 4%;
-
+    li {
+      display: inline-block;
+      margin-right: 4%;
+    }
   }
   .my-nav-style {
     text-align: left;
     a.logo-nav{
-      margin-left: 5%;
+      margin-left: 10%;
     }
   }
 }
-
+//edge case for super thin screens
+@media (max-width: 321px){
+  .moon{
+    width:48px;
+    height:48px;
+  }
+  .my-main-banner h1 {
+    font-size: 30px;
+  }
+  #mainNavSmall a, #portfolioNav label{
+    font-size: 15px;
+  }
+}
 @media print {
   .my-nav-style, .back-to-top-wrapper, .my-form {
     display: none;
@@ -240,8 +246,4 @@ h3[title="Portfolio"]{
   #about{
     background-image: none;
   }
-}
-#test li{
-  display: inline;
-  list-style: none;
 }

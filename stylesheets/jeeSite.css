@@ -10,7 +10,7 @@ section {
   border-bottom: 1px solid #efefef; }
 
 body {
-  background-color: #fff;
+  background-color: #efefef;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 80px; }
 
@@ -18,7 +18,7 @@ body {
   display: none; }
 
 .sectionHeader {
-  margin-bottom: 3%; }
+  margin-bottom: 1%; }
 
 .elem-center {
   margin-left: 0 auto; }
@@ -38,7 +38,7 @@ body {
   background: radial-gradient(center, circle cover, #2B3284 10%, #1f235d 100%);
   background-color: #2B3284;
   transition: border 2s ease;
-  border-right: 25px solid #ccc; }
+  border-right: 18px solid #ddd; }
 
 .right-shade {
   background: -moz-radial-gradient(center, circle cover, #2B3284 10%, #1f235d 50%);
@@ -48,12 +48,12 @@ body {
   background: -ms-radial-gradient(center, circle cover, #2B3284 10%, #1f235d 100%);
   background: radial-gradient(center, circle cover, #2B3284 10%, #1f235d 100%);
   background-color: #2B3284;
-  border-right-color: #ccc;
+  border-right-color: #ddd;
   border-right-style: solid;
   border-left-style: none; }
 
 .left-shade {
-  background-color: #ccc;
+  background-color: #ddd;
   border-left-color: #1f235d;
   border-left-style: solid;
   border-right-style: none; }
@@ -96,7 +96,7 @@ body {
   .txt-over-img a {
     color: #00AAff; }
     .txt-over-img a:hover {
-      color: #000; }
+      color: #ccc; }
 
 .my-form input {
   width: 100%;
@@ -166,46 +166,54 @@ body {
 
 .fixed-background {
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
-  background-position: right;
-  height: 700px; }
-
-h3[title="Portfolio"] {
-  display: inline-block; }
+  background-position: right; }
 
 #about {
-  background-image: url("../img/matherMe.jpg"); }
+  background-image: url("../img/matherMe_small.jpg"); }
 
 #webPortfolio {
   display: none; }
 
-/* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
-@media (max-width: 1024px) {
+#portfolioNav label {
+  margin-left: 2%;
+  cursor: pointer; }
+#portfolioNav .glyphicon {
+  font-size: 24px;
+  vertical-align: sub; }
+
+@media (min-width: 1025px) {
   .fixed-background {
-    background-attachment: scroll;
-    height: 100%; }
+    background-attachment: fixed;
+    height: 700px; }
 
   #about {
-    background-image: url("../img/matherMe_small.jpg"); }
-
-  .navbar-collapse a {
-    padding: 1%; } }
+    background-image: url("../img/matherMe.jpg"); } }
 @media (min-width: 768px) {
   .hidden-xs {
     display: inline-block;
     width: 42%;
     float: right;
     margin-top: 2%; }
-
-  .hidden-xs li {
-    display: inline-block;
-    margin-right: 4%; }
+    .hidden-xs li {
+      display: inline-block;
+      margin-right: 4%; }
 
   .my-nav-style {
     text-align: left; }
     .my-nav-style a.logo-nav {
-      margin-left: 5%; } }
+      margin-left: 10%; } }
+@media (max-width: 321px) {
+  .moon {
+    width: 48px;
+    height: 48px; }
+
+  .my-main-banner h1 {
+    font-size: 30px; }
+
+  #mainNavSmall a, #portfolioNav label {
+    font-size: 15px; } }
 @media print {
   .my-nav-style, .back-to-top-wrapper, .my-form {
     display: none; }
@@ -218,8 +226,5 @@ h3[title="Portfolio"] {
 
   #about {
     background-image: none; } }
-#test li {
-  display: inline;
-  list-style: none; }
 
 /*# sourceMappingURL=jeeSite.css.map */

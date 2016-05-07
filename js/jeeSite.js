@@ -232,6 +232,7 @@ var appModuleName = (function () {
     $(galleryElem).nanoGallery({
       kind: 'flickr',
       userID: '142772868@N08',
+      photoset: '72157667342772360',
       thumbnailWidth:'auto',
       thumbnailHeight:250,
       thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
