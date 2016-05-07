@@ -18,7 +18,11 @@ body {
   display: none; }
 
 .sectionHeader {
-  margin-bottom: 1%; }
+  margin-bottom: 1%;
+  background-color: #B3B3B3;
+  color: #efefef;
+  padding: 5px;
+  text-align: center; }
 
 .elem-center {
   margin-left: 0 auto; }
