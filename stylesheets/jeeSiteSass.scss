@@ -106,6 +106,7 @@ body {
   font-size: 18px;
   margin-bottom: 10px;
   padding: 5px;
+  border: none;
 }
 .my-form button {
   margin: 0 auto;
@@ -118,6 +119,7 @@ body {
 .back-to-top-wrapper {
   text-align: center;
   cursor: pointer;
+  margin-top: 8%;
   margin-bottom: 1%;
   span {
     margin-left: 1%;
@@ -137,6 +139,7 @@ body {
 .list-social-media {
   list-style: none;
   text-align: center;
+  padding-left: 0;
   li {
     display: inline;
     margin-right: 1%;
@@ -147,7 +150,6 @@ body {
 }
 .btn-round {
   border-radius: 50%;
-  background-color: $darkGrey;
   color: $white;
   width: 50px;
   height: 50px;
@@ -174,6 +176,16 @@ body {
   background-attachment: scroll;
   background-size: cover;
   background-position: right;
+}
+.fa-flickr{
+  background-color: $black;
+}
+.fa-linkedin{
+  background-color: $linkedIn;
+}
+.fa-github{
+  background-color: $white;
+  color: black;
 }
 #about{
   background-image: url('../img/matherMe_small.jpg');
