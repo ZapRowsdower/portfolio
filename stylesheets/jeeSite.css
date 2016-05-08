@@ -34,23 +34,23 @@ body {
   border-radius: 50%;
   vertical-align: bottom;
   margin-right: 1%;
-  background: -moz-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 50%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%, #434DCC), color-stop(100%, #1f235d));
-  background: -webkit-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: -o-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: -ms-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
+  background: -moz-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(20%, #434DCC), color-stop(100%, #1f235d));
+  background: -webkit-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -o-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -ms-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
   background-color: #434DCC;
   transition: border 2s ease;
   border-right: 18px solid #ddd; }
 
 .right-shade {
-  background: -moz-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 50%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%, #434DCC), color-stop(100%, #1f235d));
-  background: -webkit-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: -o-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: -ms-radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
-  background: radial-gradient(center, circle cover, #434DCC 10%, #1f235d 100%);
+  background: -moz-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(20%, #434DCC), color-stop(100%, #1f235d));
+  background: -webkit-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -o-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -ms-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
   background-color: #434DCC;
   border-right-color: #ddd;
   border-right-style: solid;
@@ -192,12 +192,14 @@ body {
 #webPortfolio {
   display: none; }
 
-#portfolioNav label {
-  margin-left: 2%;
-  cursor: pointer; }
-#portfolioNav .glyphicon {
-  font-size: 24px;
-  vertical-align: sub; }
+#portfolioNav {
+  display: none; }
+  #portfolioNav label {
+    margin-left: 2%;
+    cursor: pointer; }
+  #portfolioNav .glyphicon {
+    font-size: 24px;
+    vertical-align: sub; }
 
 @media (min-width: 1025px) {
   .fixed-background {
@@ -242,5 +244,7 @@ body {
 
   #about {
     background-image: none; } }
+#portfolioNav, li .fa-github, .my-form {
+  display: none !important; }
 
 /*# sourceMappingURL=jeeSite.css.map */

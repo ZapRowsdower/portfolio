@@ -164,7 +164,6 @@ var appModuleName = (function () {
   var setData = function (keyStr,data) {
     localStorage.setItem(keyStr,JSON.stringify(data));
   };
-
   // Public Methods, must be exposed in return statement below
   ///////////////////////////
   //wrapper to do everything needed to show the proper moon phase based on navy data

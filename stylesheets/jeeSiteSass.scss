@@ -198,6 +198,7 @@ body {
   display: none;
 }
 #portfolioNav {
+  display: none;
   label{
     margin-left: 2%;
     cursor: pointer;
@@ -206,6 +207,7 @@ body {
     font-size: 24px;
     vertical-align: sub;
   }
+
 }
 // iOS safari can't handle the bg-attachment fixed, so on those devices use 'scroll'
 @media (min-width: 1025px){
@@ -262,4 +264,8 @@ body {
   #about{
     background-image: none;
   }
+}
+// Hide unfinished, weak sections
+#portfolioNav, li .fa-github, .my-form {
+  display: none!important;
 }
