@@ -244,7 +244,7 @@ body {
 
   #about {
     background-image: none; } }
-#portfolioNav, li .fa-github, .my-form {
+#portfolioNav, li .fa-github, .my-form, #portfolioNavBar button.navbar-toggle {
   display: none !important; }
 
 /*# sourceMappingURL=jeeSite.css.map */
