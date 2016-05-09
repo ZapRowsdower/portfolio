@@ -229,17 +229,20 @@ body {
   }
 }
 //edge case for super thin screens
-@media (max-width: 321px){
+@media (max-width: 374px){
   .moon{
-    width:48px;
-    height:48px;
+    width:43px;
+    height:43px;
   }
   .my-main-banner h1 {
-    font-size: 30px;
+    font-size: 26px;
   }
   #mainNavSmall a, #portfolioNav label{
     font-size: 15px;
   }
+  // button.navbar-toggle {
+  //   padding: 2%;
+  // }
 }
 @media print {
   .my-nav-style, .back-to-top-wrapper, .my-form {

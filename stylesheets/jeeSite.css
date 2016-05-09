@@ -98,7 +98,7 @@ body {
   float: none; }
 
 .my-main-banner {
-  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #4c4c4c;
   border-bottom: 2px solid #ccc; }
   .my-main-banner h1 {
@@ -219,13 +219,13 @@ body {
 
   #about {
     background-image: url("../img/matherMe.jpg"); } }
-@media (max-width: 321px) {
+@media (max-width: 374px) {
   .moon {
-    width: 48px;
-    height: 48px; }
+    width: 43px;
+    height: 43px; }
 
   .my-main-banner h1 {
-    font-size: 30px; }
+    font-size: 26px; }
 
   #mainNavSmall a, #portfolioNav label {
     font-size: 15px; } }
