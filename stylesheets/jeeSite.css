@@ -10,15 +10,22 @@ section {
   border-bottom: 1px solid #efefef; }
 
 body {
-  background-color: #fff;
+  background-color: #efefef;
   /*padding top because navbar is fixed position and overlaps content*/
-  padding-top: 90px; }
+  padding-top: 80px; }
+
+.active {
+  border-bottom: 4px solid #4c4c4c; }
 
 .outline {
   display: none; }
 
 .sectionHeader {
-  margin-bottom: 3%; }
+  margin-bottom: 1%;
+  background-color: #B3B3B3;
+  color: #efefef;
+  padding: 5px;
+  text-align: center; }
 
 .elem-center {
   margin-left: 0 auto; }
@@ -29,31 +36,37 @@ body {
   height: 60px;
   border-radius: 50%;
   vertical-align: bottom;
-  margin-right: 1%;
-  background-color: #1f235d;
-  transition: background-color 2s ease; }
+  background: -moz-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(20%, #434DCC), color-stop(100%, #1f235d));
+  background: -webkit-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -o-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -ms-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background-color: #434DCC;
+  transition: border 2s ease;
+  border-right: 18px solid #ddd; }
 
 .right-shade {
-  background-color: #1f235d;
-  border-right-color: #ccc;
+  background: -moz-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(20%, #434DCC), color-stop(100%, #1f235d));
+  background: -webkit-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -o-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: -ms-radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background: radial-gradient(center, circle cover, #434DCC 20%, #1f235d 100%);
+  background-color: #434DCC;
+  border-right-color: #ddd;
   border-right-style: solid;
   border-left-style: none; }
 
 .left-shade {
-  background-color: #ccc;
+  background-color: #ddd;
   border-left-color: #1f235d;
   border-left-style: solid;
   border-right-style: none; }
 
-.navbar button.navbar-toggle {
-  margin-left: 1%;
-  margin-right: 4%;
-  padding: 5px; }
-
 .my-nav-style {
   background-color: #fff;
   border-style: none;
-  text-align: center;
   box-shadow: 0 0 10px 1px #4c4c4c; }
   .my-nav-style a {
     font-weight: bold;
@@ -68,17 +81,32 @@ body {
   .my-sub-nav-style a {
     font-size: 18px; }
 
-.my-main-banner {
-  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #4c4c4c;
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 1%;
+.my-navbar-inline {
+  text-align: center; }
+  .my-navbar-inline li {
+    display: inline-block; }
+
+.navbar-right {
   margin-top: 1%;
-  padding-bottom: 1%; }
+  margin-right: 1%; }
+
+.navbar-header {
+  margin-bottom: 1%;
+  text-align: center; }
+
+.navbar-brand {
+  float: none; }
+
+.my-main-banner {
+  font-family: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #4c4c4c;
+  border-bottom: 2px solid #ccc; }
   .my-main-banner h1 {
     display: inline-block;
     vertical-align: middle;
     font-weight: 200; }
+  .my-main-banner button.navbar-toggle {
+    margin-top: 22px; }
 
 .txt-over-img {
   background-color: rgba(0, 0, 0, 0.3);
@@ -88,14 +116,15 @@ body {
   .txt-over-img a {
     color: #00AAff; }
     .txt-over-img a:hover {
-      color: #000; }
+      color: #ccc; }
 
 .my-form input {
   width: 100%;
   height: 50px;
   font-size: 18px;
   margin-bottom: 10px;
-  padding: 5px; }
+  padding: 5px;
+  border: none; }
 
 .my-form button {
   margin: 0 auto;
@@ -108,6 +137,7 @@ body {
 .back-to-top-wrapper {
   text-align: center;
   cursor: pointer;
+  margin-top: 8%;
   margin-bottom: 1%; }
   .back-to-top-wrapper span {
     margin-left: 1%;
@@ -125,7 +155,8 @@ body {
 
 .list-social-media {
   list-style: none;
-  text-align: center; }
+  text-align: center;
+  padding-left: 0; }
   .list-social-media li {
     display: inline;
     margin-right: 1%; }
@@ -134,7 +165,6 @@ body {
 
 .btn-round {
   border-radius: 50%;
-  background-color: #4c4c4c;
   color: #fff;
   width: 50px;
   height: 50px; }
@@ -147,7 +177,8 @@ body {
 
 /*override boostrap btn-primary style*/
 .btn-primary {
-  background-color: #00AAff; }
+  background-color: #00AAff;
+  border: none; }
 
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
 .top-target {
@@ -157,46 +188,60 @@ body {
 
 .fixed-background {
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
-  background-position: right;
-  height: 640px; }
+  background-position: right; }
 
-/* Small devices can't handle the bg-attachment fixed, so on those devices use 'scroll' */
-@media (max-width: 1024px) {
-  .fixed-background {
-    background-attachment: scroll;
-    height: 100%; } }
+.fa-flickr {
+  background-color: #000; }
+
+.fa-linkedin {
+  background-color: #0077B5; }
+
+.fa-github {
+  background-color: #fff;
+  color: black; }
+
 #about {
-  background-image: url("../img/matherMe.jpg"); }
+  background-image: url("../img/matherMe_small.jpg"); }
 
-/*goofy fun with css hover events and such. trivial*/
-/*#moon>h3{
-  color: $brightBlue;
-  cursor: pointer;
-  position: relative;
-  left: 25%;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+#portfolioNav label {
+  margin-left: 2%;
+  cursor: pointer; }
+#portfolioNav .glyphicon {
+  font-size: 24px;
+  vertical-align: sub; }
 
-#moon:hover>h3{
-  opacity: 1;
-}
+@media (min-width: 1025px) {
+  .fixed-background {
+    background-attachment: fixed;
+    height: 700px; }
 
-#moon ~p#moonHelpText {
-  position: absolute;
-  left: 50%;
-  margin-left: -10%;
-  background-color: $black;
-  color: $white;
-  opacity: 0;
-  transition: opacity 1s ease;
-  padding: 1%;
-  z-index: 1;
-}*/
-/*#moon:hover ~p#moonHelpText{
-  opacity: 1;
-}*/
+  #about {
+    background-image: url("../img/matherMe.jpg"); } }
+@media (max-width: 374px) {
+  .moon {
+    width: 43px;
+    height: 43px; }
+
+  .my-main-banner h1 {
+    font-size: 26px; }
+
+  #mainNavSmall a, #portfolioNav label {
+    font-size: 15px; } }
+@media print {
+  .my-nav-style, .back-to-top-wrapper, .my-form {
+    display: none; }
+
+  .fixed-background {
+    height: auto; }
+
+  .txt-over-img {
+    padding: 0; }
+
+  #about {
+    background-image: none; } }
+#portfolioNav, #portfolioNavBar button.navbar-toggle, li .fa-github, .my-form, #webPortfolio {
+  display: none !important; }
 
 /*# sourceMappingURL=jeeSite.css.map */

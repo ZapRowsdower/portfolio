@@ -3,6 +3,7 @@ $white: #fff;
 $nearWhite: #efefef;
 $lightGrey: #ddd;
 $grey: #ccc;
+$midGrey: #B3B3B3;
 $darkGrey: #4c4c4c;
 $black: #000;
 
@@ -13,9 +14,19 @@ $yellow: yellow;
 
 //blue color variations
 $brightBlue: #00AAff;
-  $midBlue: #006EFF;
+$midBlue: #006EFF;
+$lessDeepBlue: #434DCC;
 $deepBlue: #1f235d;
 $nightBlue: #1b1f38;
+$linkedIn: #0077B5;
 
-//yellow variations
-$moonGlowYellow: #dee2b6;
+//moon variations
+$moonGlowYellow: #f1f4ba;
+$moonGlow: rgba(206,220,255, 0.45);
+
+$moonLight: $lightGrey;
+
+//links
+$linkPrimary: $darkGrey;
+$linkHover: $brightBlue;
+$linkVisited: $blue;
