@@ -271,3 +271,15 @@ if(appModuleName.hasLocalStorage() === true) {
 } else appModuleName.navyAPICall();
 
 appModuleName.initNanoGallery('#photoPortfolio');
+
+$('body').scrollspy({
+  target: '.navbar',
+  offset: 160
+});
+
+$('nav a, .back-to-top-wrapper a').bind('click', function () {
+  $('html, body').stop().animate({
+    scrollTop: $($(this).attr('href')).offset().top
+  }, 500, 'easeInOutExpo');
+  event.preventDefault();
+});
