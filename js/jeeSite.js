@@ -1,4 +1,4 @@
-var appModuleName = (function () {
+var homePage = (function () {
   // Properties
   ///////////////////////////
   var styleSheetLoc = "stylesheets/",
@@ -15,48 +15,11 @@ var appModuleName = (function () {
         "Half Moon":"50%",
         "Full Moon":"100%",
         "Last Quarter":"25%"
-      },
-      //nanogallery photo objects
-      //TODO: consider moving to another JS file, esp. if this becomes a huge array
-      photoMap = [
-        {
-            // image url
-            src: 'img/MtRussell.jpg',
-            // Title
-            title: 'Mt. Russell',
-            // Description
-            description : 'View of Mt. Russell and the approach to Mt. Whitney in Seqouia National Park'
-        },
-        {
-            src: 'img/SierraButteStarParty.jpg',
-            title: 'Sierra Butte Star Party',
-            description: 'Ancient star light near the center of the Milky Way galaxy blazes between trees in northern California near the Sierra Buttes'
-        },
-        {
-            src: 'img/milkyWayBlue.jpg',
-            title: 'Good Seeing',
-            description: 'Skies free of light pollution reveal thousands of stars above the Pacific Crest Trail'
-        },
-        {
-            src: 'img/MtRitterLakeReflection.jpg',
-            title: 'Mt. Ritter',
-            description: 'Mt. Ritter in the Sierra Nevada range with Thousand Island lake in the foreground'
-        },
-        {
-            src: 'img/GodRays.jpg',
-            title: 'God Rays',
-            description: 'The sun shines through forest canopy after a cold September rain near Mt. Adams in Washington state'
-        },
-        {
-            src: 'img/FoggyMeadowNearRainier.jpg',
-            title: 'Foggy Meadow Near Rainier',
-            description: 'Fog begins to stir as dawn breaks over a meadow near Mt. Rainier'
-        }
-    ];
+      };
 
   // Private Methods
   ///////////////////////////
-  //TODO: move to a utility file
+  //TODO: move to a utility file?
   // convert percent to int for comparisions
   var convertPercentToInt = function (percentage) {
     var removeSymbol = percentage.replace(/%/g, "");
@@ -89,7 +52,6 @@ var appModuleName = (function () {
       var textPhase = astroData.closestphase.phase;
       moonPhasePercent = moonPhaseDict[textPhase];
     }
-    console.log("Moon phase is: "+moonPhasePercent);
   };
   //set an int version of the moon phase (ex: '100%' == 100)
   var setMoonPhaseInt = function () {
@@ -242,6 +204,7 @@ var appModuleName = (function () {
       thumbnailGutterHeight : 0
      });
   };
+  //code for nano gallery if using local images. not using this.
   var initNanoGalleryLocal = function (galleryElem) {
     $(galleryElem).nanoGallery({
         thumbnailWidth:'auto',thumbnailHeight:500,
@@ -262,21 +225,21 @@ var appModuleName = (function () {
     'initNanoGallery': flickrNano
   };
 })();
-if(appModuleName.hasLocalStorage() === true) {
+//if browser has local storage, check if any stored moon data exists and fire off ajax call if it doesn't
+if(homePage.hasLocalStorage() === true) {
   //moon data is out of date so call the navy api
-  if(appModuleName.hasCurrentData("moonDataJSON", "reqUTCDay") === false) {
-    appModuleName.navyAPICall();
+  if(homePage.hasCurrentData("moonDataJSON", "reqUTCDay") === false) {
+    homePage.navyAPICall();
   //not out of date so retrieve stored data and draw the moon
-  } else appModuleName.buildMoonWrapper(appModuleName.getData("moonDataJSON"));
-} else appModuleName.navyAPICall();
-
-appModuleName.initNanoGallery('#photoPortfolio');
-
+  } else homePage.buildMoonWrapper(homePage.getData("moonDataJSON"));
+} else homePage.navyAPICall();
+homePage.initNanoGallery('#photoPortfolio');
+//init bootstrap scrollspy for nav section highlighting behavior
 $('body').scrollspy({
   target: '.navbar',
   offset: 160
 });
-
+//smooth scrolling jquery library init
 $('nav a, .back-to-top-wrapper a').bind('click', function () {
   $('html, body').stop().animate({
     scrollTop: $($(this).attr('href')).offset().top
