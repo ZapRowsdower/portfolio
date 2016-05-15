@@ -43,16 +43,17 @@ body {
   @include radial-gradient($lessDeepBlue, $deepBlue);
   transition: border 2s ease;
   border-right: 18px solid $moonLight;
+  box-shadow: 0 0 3px $darkGrey;
 }
-.right-shade{
+.before-half{
   @include radial-gradient($lessDeepBlue, $deepBlue);
   border-right-color: $moonLight;
   border-right-style: solid;
   border-left-style: none;
 }
-.left-shade{
-  background-color: $moonLight;
-  border-left-color: $deepBlue;
+.after-half{
+  @include radial-gradient($moonLight, $grey);
+  border-left-color: $lessDeepBlue;
   border-left-style: solid;
   border-right-style: none;
 }

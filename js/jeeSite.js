@@ -84,8 +84,8 @@ var homePage = (function () {
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
       //apply class and phase
-      $(moonElem).removeClass("left-shade");
-      $(moonElem).addClass("right-shade");
+      $(moonElem).removeClass("after-half");
+      $(moonElem).addClass("before-half");
       $(moonElem).css("border-right-width",moonPhaseToPx);
     } else {
     //After half moon (if percentage between 50 and 100):
@@ -99,8 +99,8 @@ var homePage = (function () {
       var moonPhaseToPx = moonMath.toString();
       moonPhaseToPx = moonPhaseToPx+"px";
       //apply class and phase
-      $(moonElem).removeClass("right-shade");
-      $(moonElem).addClass("left-shade");
+      $(moonElem).removeClass("before-half");
+      $(moonElem).addClass("after-half");
       $(moonElem).css("border-left-width",moonPhaseToPx);
     }
   };
