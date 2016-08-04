@@ -201,7 +201,10 @@ var homePage = (function () {
       theme: 'light',
       viewerToolbar: {style: 'fullWidth'} ,
       thumbnailGutterWidth : 0,
-      thumbnailGutterHeight : 0
+      thumbnailGutterHeight : 0,
+      fnInitGallery: function () {
+        $(galleryElem).hide();
+      }
      });
   };
   //code for nano gallery if using local images. not using this.
@@ -225,6 +228,7 @@ var homePage = (function () {
     'initNanoGallery': flickrNano
   };
 })();
+
 //if browser has local storage, check if any stored moon data exists and fire off ajax call if it doesn't
 if(homePage.hasLocalStorage() === true) {
   //moon data is out of date so call the navy api
@@ -234,13 +238,20 @@ if(homePage.hasLocalStorage() === true) {
   } else homePage.buildMoonWrapper(homePage.getData("moonDataJSON"));
 } else homePage.navyAPICall();
 homePage.initNanoGallery('#photoPortfolio');
+
 //init bootstrap scrollspy for nav section highlighting behavior
 $('body').scrollspy({
   target: '.navbar',
   offset: 160
 });
+
 //smooth scrolling jquery library init
-$('nav a, .back-to-top-wrapper a').bind('click', function () {
+$('.navbar-fixed-top a, .back-to-top-wrapper a, .portfolio-nav').bind('click', function () {
+  //portfolio nav behavior for showing/hiding selected sections
+  if($(this).hasClass("portfolio-nav")) {
+    $(".portfolio-section").hide();
+    $($(this).attr("href")).show();
+  }
   $('html, body').stop().animate({
     scrollTop: $($(this).attr('href')).offset().top
   }, 500, 'easeInOutExpo');

@@ -131,9 +131,7 @@ body {
   padding: 10px;
   font-size: 20px;
 }
-.my-portfolio-grid div {
-  margin-bottom: 2%;
-}
+
 .back-to-top-wrapper {
   text-align: center;
   cursor: pointer;
@@ -257,6 +255,6 @@ body {
   }
 }
 // Hide unfinished, content weak sections
-#portfolioNav, #portfolioNavBar button.navbar-toggle, li .fa-github, .my-form, #webPortfolio {
+li .fa-github, .my-form, {
   display: none!important;
 }

@@ -1,7 +1,7 @@
 a {
   color: #4c4c4c; }
   a:hover {
-    color: #00AAff;
+    color: #0cf;
     text-decoration: none; }
 
 section {
@@ -120,7 +120,7 @@ body {
   padding: 5%;
   color: #fff; }
   .txt-over-img a {
-    color: #00AAff; }
+    color: #0cf; }
     .txt-over-img a:hover {
       color: #ccc; }
 
@@ -136,9 +136,6 @@ body {
   margin: 0 auto;
   padding: 10px;
   font-size: 20px; }
-
-.my-portfolio-grid div {
-  margin-bottom: 2%; }
 
 .back-to-top-wrapper {
   text-align: center;
@@ -183,7 +180,7 @@ body {
 
 /*override boostrap btn-primary style*/
 .btn-primary {
-  background-color: #00AAff;
+  background-color: #0cf;
   border: none; }
 
 /* Added to prevent my fixed position navbar from overlapping content when 'back to top' link is used */
@@ -248,7 +245,7 @@ body {
 
   #about {
     background-image: none; } }
-#portfolioNav, #portfolioNavBar button.navbar-toggle, li .fa-github, .my-form, #webPortfolio {
+li .fa-github, .my-form {
   display: none !important; }
 
 /*# sourceMappingURL=jeeSite.css.map */
