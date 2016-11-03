@@ -152,7 +152,7 @@ var homePage = (function () {
     if(storedData !== null) {
       //if stored, check if today's UTC day matches stored UTC day
       var storedDataDate = storedData[dateProp];
-      var today = new Date().getUTCDay();
+      var today = new Date().getUTCDate();
       if(storedDataDate === today) {
         return true;
       } else return false;
@@ -180,7 +180,7 @@ var homePage = (function () {
        success: function(data) {
           //if local storage support exists, store the date of the request
           if(hasLocalStorage() === true){
-            var utcDay = new Date().getUTCDay();
+            var utcDay = new Date().getUTCDate();
             data.reqUTCDay = utcDay;
             setData("moonDataJSON",data);
           }
@@ -228,6 +228,7 @@ var homePage = (function () {
     'initNanoGallery': flickrNano
   };
 })();
+homePage.initNanoGallery('#photoPortfolio');
 
 //if browser has local storage, check if any stored moon data exists and fire off ajax call if it doesn't
 if(homePage.hasLocalStorage() === true) {
@@ -237,7 +238,6 @@ if(homePage.hasLocalStorage() === true) {
   //not out of date so retrieve stored data and draw the moon
   } else homePage.buildMoonWrapper(homePage.getData("moonDataJSON"));
 } else homePage.navyAPICall();
-homePage.initNanoGallery('#photoPortfolio');
 
 //init bootstrap scrollspy for nav section highlighting behavior
 $('body').scrollspy({
@@ -253,7 +253,7 @@ $('.navbar-fixed-top a, .back-to-top-wrapper a, .portfolio-nav').bind('click', f
     $($(this).attr("href")).show();
   }
   $('html, body').stop().animate({
-    scrollTop: $($(this).attr('href')).offset().top
+    scrollTop: $($(this).attr('href')).offset().top-180
   }, 500, 'easeInOutExpo');
   event.preventDefault();
 });

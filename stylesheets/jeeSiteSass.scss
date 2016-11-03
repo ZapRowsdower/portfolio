@@ -16,7 +16,6 @@ body {
   background-color: $nearWhite;
   /*padding top because navbar is fixed position and overlaps content*/
   padding-top: 80px;
-
 }
 .active {
   border-bottom: 4px solid $darkGrey;
@@ -131,7 +130,6 @@ body {
   padding: 10px;
   font-size: 20px;
 }
-
 .back-to-top-wrapper {
   text-align: center;
   cursor: pointer;
@@ -203,6 +201,14 @@ body {
   background-color: $white;
   color: black;
 }
+.media-label{
+  position: relative;
+  background-color: $darkGrey;
+  top: 11px;
+  padding: 1%;
+  font-size: 18px;
+  color: $white;
+}
 #about{
   background-image: url('../img/matherMe_small.jpg');
 }
@@ -216,6 +222,10 @@ body {
     vertical-align: sub;
   }
 }
+#webPortfolio{
+  padding: 0% 2% 2% 2%;
+}
+
 // iOS safari can't handle the bg-attachment fixed, so enable for large screens
 @media (min-width: 1025px){
   .fixed-background{

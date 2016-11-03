@@ -205,6 +205,14 @@ body {
   background-color: #fff;
   color: black; }
 
+.media-label {
+  position: relative;
+  background-color: #4c4c4c;
+  top: 11px;
+  padding: 1%;
+  font-size: 18px;
+  color: #fff; }
+
 #about {
   background-image: url("../img/matherMe_small.jpg"); }
 
@@ -214,6 +222,9 @@ body {
 #portfolioNav .glyphicon {
   font-size: 24px;
   vertical-align: sub; }
+
+#webPortfolio {
+  padding: 0% 2% 2% 2%; }
 
 @media (min-width: 1025px) {
   .fixed-background {
