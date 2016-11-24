@@ -139,6 +139,7 @@ var homePage = (function () {
   };
   //check if the browser supports HTML5 local storage
   var hasLocalStorage = function () {
+    //TODO: use if(Storage) instead
     if(typeof(Storage) !== "undefined") {
       return true;
     } else {
@@ -174,8 +175,8 @@ var homePage = (function () {
        data: {
           format: 'json'
        },
-       error: function() {
-          alert("error");
+       error: function(error) {
+         console.log(error);
        },
        success: function(data) {
           //if local storage support exists, store the date of the request
@@ -253,7 +254,7 @@ $('.navbar-fixed-top a, .back-to-top-wrapper a, .portfolio-nav').bind('click', f
     $($(this).attr("href")).show();
   }
   $('html, body').stop().animate({
-    scrollTop: $($(this).attr('href')).offset().top-180
+    scrollTop: $($(this).attr('href')).offset().top-140
   }, 500, 'easeInOutExpo');
   event.preventDefault();
 });
